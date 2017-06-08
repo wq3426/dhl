@@ -1,0 +1,61 @@
+开发环境：MyEclipse10 + tomcat8.5 + JDK1.7
+
+后台框架：SpringBoot/SpringMVC + Spring + MyBatis/jdbc
+
+数据库：SQL Server (sa/admin123)
+
+版本管理：SVN  (qiang.wang/8888  zeng.li/123456)
+
+ - http://epod.dhl.com/svn/0033/trunk/02-Sources/Java  代码名称：yard
+
+企业邮箱：wangqiang@souvi.com / qiye@163
+
+项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
+
+http://www.capcourse.com/Library/OpenSAML/
+
+
+问题记录：
+
+ - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
+   - 添加泊位计划时，要判断泊位是否可用
+   - 供应商-泊位关联时，要判断泊位是否可用
+   - 历史查询结果导出Excel
+   - 日志模块
+   - mybatis怎样不返回所有实体类字段
+   - 泊位监控列表条件查询用#报错，用$就好了，为啥？
+   - 输入参数校验
+   - 异常处理
+
+ - SQL Server数据库开发常用sql语法熟悉
+ - log4j在项目中的使用   （需要将日志发送给华为）
+ - maven的使用
+ - websocket的使用
+ - 前后端分离的开发模式是怎样的
+ - 学习开发环境搭建
+ - 技术管理（代码规范），项目进度把控（敏捷开发，项目周期制定）
+ - MyEclipse注释模板设置
+
+
+
+- 框架搭建 + 数据库创建
+  - 外键约束含义
+  - 如何用PD建表，包含字段类型、缺省值、约束、注释，mysql的常用数据类型
+  - 框架搭建
+  - SVN
+  - 数据表缺少：华为接口数据表
+
+- 项目进度控制redmine + SVN
+
+- bug管理 账号注册
+
+- 工作进度提交
+
+- 体检报告（慈铭）
+- 找比较好的学习拼音视频
+- 给家里买测脂体重秤
+
+s 2 3 5
+b 8 12 13 14
+
+2017-06-06 09:00:00.000

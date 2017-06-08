@@ -1,0 +1,19 @@
+
+
+项目进度管理
+ 
+ - http://epod.dhl.com/redmine/
+ - 周报
+
+bug跟进及管理
+
+ - http://www.delbug.cn/bug
+
+团队开发
+ 
+ - Git / SVN
+
+数据库
+
+ - 建表添加创建人、创建时间、更新人、更新时间
+ - 自动化工具，如PowerDesigner
