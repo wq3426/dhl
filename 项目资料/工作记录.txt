@@ -19,8 +19,8 @@ http://www.capcourse.com/Library/OpenSAML/
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
-   - app接口文档整理
    - 计划修改、删除
+   - app接口文档整理
    - 历史查询结果导出Excel
    - 华为接口参数获取
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
@@ -28,7 +28,8 @@ http://www.capcourse.com/Library/OpenSAML/
 
    - mybatis怎样不返回所有实体类字段
    - 泊位监控列表条件查询用#报错，用$就好了，为啥？
-   - 异常处理
+   - SpringMVC的异常处理
+   - SQL Server图形界面工具
 
  - SQL Server数据库开发常用sql语法熟悉
  - log4j在项目中的使用   （需要将日志发送给华为）
