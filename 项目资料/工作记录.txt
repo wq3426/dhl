@@ -12,15 +12,10 @@
 
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
-http://www.capcourse.com/Library/OpenSAML/
-
-本地请求测试工具：HttpRequester
-
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
-   - 计划删除
-   - app接口文档整理
+   - 摊牌
    - 历史查询结果导出Excel
    - 华为接口参数获取
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
@@ -44,7 +39,7 @@ http://www.capcourse.com/Library/OpenSAML/
 
 - 框架搭建 + 数据库创建
   - 外键约束含义
-  - 如何用PD建表，包含字段类型、缺省值、约束、注释，mysql的常用数据类型
+  - 如何用PD建表，包含字段类型、缺省值、约束、注释，Sql Server的常用数据类型
   - 框架搭建
   - SVN
   - 数据表缺少：华为接口数据表
