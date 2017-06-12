@@ -15,15 +15,15 @@
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
-   - 摊牌
    - 历史查询结果导出Excel
    - 华为接口参数获取
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
    - 输入参数校验
 
-   - mybatis怎样不返回所有实体类字段
+   - mybatis怎样不返回所有实体类字段 resultMap的type指定为hashmap
    - 泊位监控列表条件查询用#报错，用$就好了，为啥？
    - SpringMVC的异常处理
+   - 导入导出Excel的工具类
    - SQL Server图形界面工具
 
  - SQL Server数据库开发常用sql语法熟悉
