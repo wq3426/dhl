@@ -4,3 +4,22 @@
 优我少女 决赛
 
 电影《沙漠之花》
+
+
+输入校验：
+
+http://www.cnblogs.com/beiyan/p/5946345.html
+
+http://ihenu.iteye.com/blog/2231893
+
+http://blog.csdn.net/miketom155/article/details/45058195
+
+https://my.oschina.net/wanyuxiang000/blog/289257
+
+https://www.ibm.com/developerworks/cn/java/j-lo-jsr303/
+
+http://docs.jboss.org/hibernate/validator/4.2/reference/zh-CN/html_single/#preface
+
+http://www.cnblogs.com/hy1988/p/5853297.html
+
+http://blog.csdn.net/jamesge2010/article/details/53610162
