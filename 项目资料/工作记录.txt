@@ -6,7 +6,9 @@
 
 版本管理：SVN  (qiang.wang/8888  zeng.li/123456)
 
- - http://epod.dhl.com/svn/0033/trunk/02-Sources/Java  代码名称：yard
+ - 泊位管理 http://epod.dhl.com/svn/0033/trunk/02-Sources/Java  代码名称：yard
+
+ - CFDA http://epod.dhl.com/svn/0023/02-Branches/V2             代码名称：CFDA
 
 企业邮箱：wangqiang@souvi.com / qiye@163
 
