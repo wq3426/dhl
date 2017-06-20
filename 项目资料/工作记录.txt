@@ -30,6 +30,7 @@
    - SQL Server图形界面工具
    - Spring AOP的配置使用
 
+ - Power Designer如何建数据模型，以及如何跟数据库关联
  - SQL Server数据库开发常用sql语法熟悉
  - log4j在项目中的使用   （需要将日志发送给华为）
  - maven的使用
