@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.souvi.sysmanager.auditLog.mapper.AuditLogMapper">
+
+	<!-- 添加审批日志 -->
+	<insert id="insertAuditLog">
+		INSERT INTO AuditLog (AuditId, ForeignId,AuditType,AuditStage,AuditPersion,AuditPersionId,AuditStatus,AuditDate
+		,AuditPosition,AuditOpinion) 
+		VALUES (#{auditLog.auditId}, #{auditLog.foreignId}, #{auditLog.auditType},#{auditLog.auditStage},#{auditLog.auditPersion},
+		#{auditLog.auditPersionId},#{auditLog.auditStatus}, #{auditLog.auditDate},#{auditLog.auditPosition},#{auditLog.auditOpinion})
+	</insert>
+	
+	<!-- 查询审批日志列表 -->
+	<select id="getAuditLogList" resultType="com.souvi.sysmanager.auditLog.entity.AuditLog">
+		select 
+			*
+		from AuditLog
+		<where>
+			 1 = 1
+			<if test="auditLog.foreignId != null and auditLog.foreignId != ''">
+				and ForeignId = '${auditLog.foreignId}'
+			</if>
+			and AuditStage != 0
+		</where>
+		order by AuditDate desc
+	</select>
+	
+	<!-- 查询最近一次审批记录 -->
+	<select id="getAuditLogByForeignId" resultType="com.souvi.sysmanager.auditLog.entity.AuditLog">
+		select top 1
+			*
+		from AuditLog
+		where foreignId = '${foreignId}'
+		order by AuditDate desc
+	</select>
+</mapper>

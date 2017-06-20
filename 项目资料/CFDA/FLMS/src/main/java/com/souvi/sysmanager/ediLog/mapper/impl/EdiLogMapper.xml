@@ -1,0 +1,42 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.souvi.sysmanager.ediLog.mapper.EdiLogMapper">
+	
+	<!-- 查询列表 -->
+	<select id="getediLogList" resultType="com.souvi.sysmanager.ediLog.entity.EdiLog">
+		select * from EDILog where 		
+			 1 = 1
+			<if test="elg.processingState != null and elg.processingState != ''">
+				and ProcessingState = #{elg.processingState}
+			</if>
+			<if test="elg.processingResult != null and elg.processingResult != ''">
+				and ProcessingResult like '%${elg.processingResult}%'
+			</if>
+			<if test="elg.edi_Type != null and elg.edi_Type != ''">
+				and EDI_Type = #{elg.edi_Type}
+			</if>
+			<if test="elg.fileName != null and elg.fileName != ''">
+				and FileName like '%${elg.fileName}%'
+			</if>
+			<if test="elg.processingDate_Start != null and elg.processingDate_Start != ''">
+				and ProcessingDate &gt;=  #{elg.processingDate_Start}
+			</if>
+			<if test="elg.processingDate_End != null and elg.processingDate_End != ''">
+				and ProcessingDate &lt;= #{elg.processingDate_End}
+			</if>
+			
+		
+	</select>
+	 
+	 <select id="selectEdiLogByID" resultType="com.souvi.sysmanager.ediLog.entity.EdiLog">
+	 select * from EDILog where EDIId =	#{ediId} 
+	 </select>
+	 
+	 <update id="updataEdiLog" >
+	 update EDILog set
+		        RepeatedCause= #{repeatedCause},
+		        RetransMission=#{retransMission},
+		        RetransMissionTime=#{retransMissionTime} 
+	            where
+		        EDIId =	#{ediId} 
+	 </update>
+</mapper>

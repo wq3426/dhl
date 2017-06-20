@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.souvi.sysmanager.role.mapper.roleMapper">
+
+	<!-- 角色列表&模糊查询 -->
+	<select id="getRoleList" resultType="com.souvi.sysmanager.role.entity.Role">
+		select * from Roles
+		<where>
+			 1 = 1
+			<if test="role.roleName != null and role.roleName != ''">
+				and roleName like '%${role.roleName}%'
+			</if>
+			<if test="role.roleStatus != null and role.roleStatus != ''">
+				and roleStatus like '%${role.roleStatus}%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 添加/编辑时验证用户名唯一 -->
+	<select id="checkRoleName" resultType="int">
+		select count(*) from Roles where roleId != #{roleId} and roleName = #{roleName}
+	</select>
+	
+	<!-- 角色添加 -->
+	<insert id="insertRole">
+		INSERT INTO Roles 
+		(roleId, roleName,roleStatus,description,createBy,createDate,lastUpdateBy,lastUpdateDate) 
+		VALUES 
+		(#{role.roleId}, #{role.roleName}, #{role.roleStatus},#{role.description},#{role.createBy},#{role.createDate}, #{role.lastUpdateBy},#{role.lastUpdateDate})
+	</insert>
+	
+	<!-- 通过ID得到角色信息 -->
+	<select id="getRoleByID" resultType="com.souvi.sysmanager.role.entity.Role">
+		select * from Roles where roleId = #{roleId}
+	</select>
+	
+	<!-- 编辑角色信息 -->
+	<update id="updateRole">
+		update Roles set 
+		roleName= #{role.roleName} ,roleStatus = #{role.roleStatus}
+		,description = #{role.description}
+		,lastUpdateBy = #{role.lastUpdateBy},lastUpdateDate = #{role.lastUpdateDate}  
+		where  roleId = #{role.roleId}
+	</update>
+	
+	<!-- 角色删除 -->
+	<delete id="deleteRole">
+		delete from Roles where roleId = #{roleId}
+		delete from Roles_Rights where roleId = #{roleId}
+	</delete>
+	
+	<!-- 更改角色最后的操作状态 -->
+	<update id="updateLast">
+		update Roles set 
+		lastUpdateBy = #{role.lastUpdateBy},lastUpdateDate = #{role.lastUpdateDate}  
+		where roleId = #{role.roleId}
+	</update>
+	
+	<!-- 通过角色ID查到角色已分配的权限 -->
+	<select id="getRightById" resultType="com.souvi.sysmanager.right.entity.Right">
+		select r.rightId id,rightName name,parentid pid,
+		case when ar.roleId IS not null then 'true' else 'false' end checked
+		from Rights r
+		left join Roles_Rights ar on r.rightId=ar.rightId and ar.roleId=#{roleId}
+	</select>
+	
+	<!-- 先删除原有权限 -->
+	<delete id="deleteAssignRight">
+		delete from Roles_Rights where roleId = #{roleId}
+	</delete>
+	
+	<!-- 在添加新权限 -->
+	<insert id="insertRight">
+		INSERT INTO Roles_Rights (id,rightId,roleId) VALUES (#{roleRightId}, #{rightId}, #{roleId})
+	</insert>
+	
+	<select id="queryAllRoleRight" resultType="java.util.Map">
+	 select * from Roles_Rights
+	</select>
+	
+	<resultMap type="com.souvi.sysmanager.systemConfig.entity.LeftTree" id="tree">
+	 <id property="id" column="id"/>
+	 <result property="name" column="name"/>
+	 <result property="pId" column="pid"/>
+	 <result property="checked" column="checked"/>
+	</resultMap>
+	
+	<select id="loadTree" resultMap="tree">
+	 	select r.rightId id,r.rightName name,r.parentid pid,
+		case when rr.id is null then 'false' else 'true' end as checked
+		from Rights r
+		left join Roles_Rights rr on rr.rightId = r.rightId and rr.roleId = #{roleId}
+		where r.rightStatus = 'Y'
+	</select>
+</mapper>

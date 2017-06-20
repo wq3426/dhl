@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.souvi.task.ediTextTask.mapper.EdiTextTaskMpper">
+	
+	<insert id="setproductLicense">
+		INSERT INTO 
+			Product 
+		(	
+			Material,MaterialDescription,MateralType
+			,ProductName,Model,JANCode,InplantFlag,ShippingCondition
+			,Weight,Size,TraceType,CFDAStatecode,ValidManage,ValidManageDays
+			,IsitColdChainStorage,StorageCondition,ValidityPeriod,ProductionCompanyLicense
+			,ProductionLicenseHolder,ProductionCompany,ProductType,AuditStatus
+			,DataStatus,DataSources,Remark1,Remark2,Remark3,Remark4,Remark5
+			,Remark6,Remark7,Remark8,Remark9,Remark10,CreateBy,CreateDate
+		) 
+		VALUES 
+		(
+			 #{product.material},#{product.materialDescription}
+			,#{product.materalType},#{product.productName},#{product.model},#{product.janCode}
+			,#{product.inplantFlag},#{product.shippingCondition},#{product.weight},#{product.size}
+			,#{product.traceType},#{product.cfdaStatecode},#{product.validManage},#{product.validManageDays}
+			,#{product.isitColdChainStorage},#{product.storageCondition},#{product.validityPeriod}
+			,#{product.productionCompanyLicense},#{product.productionLicenseHolder}
+			,#{product.productionCompany},#{product.productType},#{product.auditStatus}
+			,#{product.dataStatus},#{product.dataSources},#{product.remark1},#{product.remark2},#{product.remark3}
+			,#{product.remark4},#{product.remark5},#{product.remark6},#{product.remark7},#{product.remark8}
+			,#{product.remark9},#{product.remark10},#{product.createBy},#{product.createDate}
+		)
+	</insert>
+		<insert id="setproductUpdate">
+	INSERT INTO
+	ProductUpdate
+	(
+	FileName,
+	FilePath,
+	UpdateStatus,
+	ProductId,
+	ProjectId,
+	Material,
+	MaterialDescription,
+	MateralType,
+	ProductName,
+	Model,
+	JANCode,
+	InplantFlag,
+	ShippingCondition,
+	Weight,
+	Size,
+	TraceType,
+	CFDAStatecode,
+	ValidManage,
+	ValidManageDays,
+	IsitColdChainStorage,
+	StorageCondition,
+	ValidityPeriod,
+	ProductionCompanyLicense,
+	ProductionLicenseHolder,
+	ProductionCompany ,
+	ProductType,
+	AuditStatus,
+	DataStatus,
+	DataSources,
+	LockReason,
+	CreateBy,
+	CreateDate,
+	LastUpdateBy,
+	LastUpdateDate,
+	Remark1,
+	Remark2,
+	Remark3,
+	Remark4,
+	Remark5,
+	Remark6,
+	Remark7,
+	Remark8,
+	Remark9,
+	Remark10
+
+	)
+	VALUES
+	(
+	#{productUpdate.fileName },
+	#{productUpdate.filePath },
+	#{productUpdate.updateStatus },
+	#{productUpdate.productId },
+	#{productUpdate.projectId },
+	#{productUpdate.material },
+	#{productUpdate.materialDescription },
+	#{productUpdate.materalType },
+	#{productUpdate.productName },
+	#{productUpdate.model },
+	#{productUpdate.jANCode },
+	#{productUpdate.inplantFlag },
+	#{productUpdate.shippingCondition },
+	#{productUpdate.weight },
+	#{productUpdate.size },
+	#{productUpdate.traceType },
+	#{productUpdate.cFDAStatecode },
+	#{productUpdate.validManage },
+	#{productUpdate.validManageDays },
+	#{productUpdate.isitColdChainStorage },
+	#{productUpdate.storageCondition },
+	#{productUpdate.validityPeriod },
+	#{productUpdate.productionCompanyLicense },
+	#{productUpdate.productionLicenseHolder },
+	#{productUpdate.productionCompany },
+	#{productUpdate.productType },
+	#{productUpdate.auditStatus },
+	#{productUpdate.dataStatus },
+	#{productUpdate.dataSources },
+	#{productUpdate.lockReason },
+	#{productUpdate.createBy },
+	#{productUpdate.createDate },
+	#{productUpdate.lastUpdateBy },
+	#{productUpdate.lastUpdateDate },
+	#{productUpdate.remark1 },
+	#{productUpdate.remark2 },
+	#{productUpdate.remark3 },
+	#{productUpdate.remark4 },
+	#{productUpdate.remark5 },
+	#{productUpdate.remark6 },
+	#{productUpdate.remark7 },
+	#{productUpdate.remark8 },
+	#{productUpdate.remark9 },
+	#{productUpdate.remark10 },
+
+	)
+	</insert>
+	<select id="setproductname" resultType="com.souvi.sysmanager.productManagement.entity.Product">
+		select ProductTypeId from ProductType where ProductTypeName = #{productType} 
+	</select>
+	<select id="getprojectname" resultType="com.souvi.sysmanager.projectManage.entity.ProjectManage">
+		select ProjectId from Project where ProjectName = #{projectName} 
+	</select>
+	
+	<select id="getproductmaterial" resultType="com.souvi.sysmanager.productManagement.entity.Product">
+		select ProjectId from Project where Material = #{material} 
+	</select>
+</mapper>

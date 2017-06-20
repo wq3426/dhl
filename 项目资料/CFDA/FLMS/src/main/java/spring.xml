@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans  xmlns="http://www.springframework.org/schema/beans"  
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+xmlns:aop="http://www.springframework.org/schema/aop"   
+xmlns:context="http://www.springframework.org/schema/context"  
+xmlns:jee="http://www.springframework.org/schema/jee"  
+xmlns:lang="http://www.springframework.org/schema/lang"  
+xmlns:util="http://www.springframework.org/schema/util"  
+xmlns:tx="http://www.springframework.org/schema/tx"  
+xmlns:mvc="http://www.springframework.org/schema/mvc"    
+xsi:schemaLocation="http://www.springframework.org/schema/beans  
+
+ http://www.springframework.org/schema/beans/spring-beans.xsd   
+ http://www.springframework.org/schema/aop    
+ http://www.springframework.org/schema/aop/spring-aop.xsd   
+ http://www.springframework.org/schema/jee    
+ http://www.springframework.org/schema/jee/spring-jee.xsd   
+ http://www.springframework.org/schema/lang    
+ http://www.springframework.org/schema/lang/spring-lang.xsd   
+ http://www.springframework.org/schema/context    
+ http://www.springframework.org/schema/context/spring-context.xsd   
+ http://www.springframework.org/schema/tx    
+ http://www.springframework.org/schema/tx/spring-tx.xsd   
+ http://www.springframework.org/schema/util    
+ http://www.springframework.org/schema/util/spring-util.xsd   
+ http://www.springframework.org/schema/mvc    
+ http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
+ 
+ 	<!-- 扫描【业务层】和【数据操作层】组件 -->
+ 	<context:component-scan base-package="com.souvi.*.*.service"></context:component-scan>
+ 
+ 	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations"
+			value="classpath:/database.properties" />
+	</bean>
+ 
+	<!-- 创建数据源（数据库连接池使用dbcp） -->
+ 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+ 		<property name="driverClassName" value="${asset.jdbc.driver}"></property>
+ 		<property name="url" value="${asset.jdbc.url}"></property>
+ 		<property name="username" value="${asset.jdbc.username}"></property>
+ 		<property name="password" value="${asset.jdbc.password}"></property>
+ 	</bean>
+ 	
+ 	<!-- 创建session -->
+ 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+ 		<!-- setter注入 -->
+ 		<property name="dataSource" ref="dataSource"></property>
+ 		<property name="mapperLocations" value="classpath:com/souvi/*/*/mapper/impl/*.xml"></property>
+ 		<property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
+                    <property name="properties">
+                        <value>
+                            helperDialect=sqlserver
+                            reasonable=true
+                            supportMethodsArguments=true
+                            params=count=countSql
+                            autoRuntimeDialect=true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+ 	</bean>
+ 	
+ 	<!-- 扫描myBatis操作数据库的接口 -->
+ 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+ 		<property name="basePackage" value="com.souvi.*.*.mapper"></property>
+ 	</bean>
+ 	
+ 	<!-- 配置事务管理器 -->
+ 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+ 		<property name="dataSource" ref="dataSource"></property>
+ 	</bean>
+ 	
+ 	<!-- 配置事务通知 -->
+ 	<tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+ 		<tx:attributes>
+ 			<tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+ 			<tx:method name="update*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+ 			<tx:method name="delete*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+ 		</tx:attributes>
+ 	</tx:advice>
+ 	
+ 	<!-- 配置关注点，并关联事务通知 -->
+ 	<aop:config>
+ 		<aop:pointcut expression="execution(* com.souvi.*.*.service.impl.*.*(..))" id="managedMethod"/>
+ 		<aop:advisor advice-ref="transactionAdvice" pointcut-ref="managedMethod"/>
+ 	</aop:config>
+ 	
+ 	<bean class="com.souvi.sysmanager.right.listener.RightListener">
+ 	  <property name="rightMapper" ref="rightMapper"></property>
+ 	  <property name="roleMapper" ref="roleMapper"></property>
+ 	</bean>
+ <!-- *********************第二个************************************************ -->
+ 	
+ 	
+ <!-- ********************************************************************* -->
+	  <!-- 在实际开发中通常都需配置 mvc:annotation-driven标签,这个标签是开启注解 -->  
+        <mvc:annotation-driven></mvc:annotation-driven>  
+        <!-- 拦截器 -->  
+        <mvc:interceptors>  
+            <!-- 多个拦截器，顺序执行 -->  
+            <mvc:interceptor>  
+                <mvc:mapping path="/**"/>
+         		<mvc:exclude-mapping path="/login/**"/> 
+                <bean class="com.souvi.sysmanager.interceptor.LoginInterceptor"></bean>  
+            </mvc:interceptor>  
+        </mvc:interceptors> 
+ <!-- 引入spring xml -->
+ <!-- 定时任务 -->
+ <import resource="config/spring-ediTextTask.xml"/> 
+ </beans>

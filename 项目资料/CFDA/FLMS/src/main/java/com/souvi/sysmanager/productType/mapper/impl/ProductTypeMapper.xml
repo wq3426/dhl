@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.souvi.sysmanager.productType.mapper.ProductTypeMapper">
+<!-- 查询 -->
+ <select id="findProductType"  resultType="com.souvi.sysmanager.productType.entity.ProductType">
+   select * from ProductType where 1=1
+			    <if test="pte.productTypeName != null and pte.productTypeName  != ''">
+			              and ProductTypeName LIKE '%${pte.productTypeName}%' 
+			    </if>
+			    <if test="pte.productTypeLevel != null and pte.productTypeLevel  != ''">
+			              and ProductTypeLevel  = #{pte.productTypeLevel}
+			    </if>
+
+  </select>
+  <!-- 添加 --> 
+  <insert id="insertTypeList" >
+		INSERT INTO ProductType 
+			(ProductTypeId,productTypeName,ProductTypeLevel,productTypeNo,remark,DataStatus) 
+		VALUES 
+			(
+				#{pte.productTypeId},#{pte.productTypeName}, #{pte.productTypeLevel},#{pte.productTypeNo}, #{pte.remark}, #{pte.dataStatus}
+			)
+	</insert>
+  <!-- 回显 -->
+   <select id="findProductID"  resultType="com.souvi.sysmanager.productType.entity.ProductType">
+   select * from ProductType where ProductTypeId=#{productTypeId}
+   </select>
+   <!-- 编辑-->
+	<update id="updataProduct">
+		update ProductType set
+		        ProductTypeName=#{pte.productTypeName},
+		        ProductTypeLevel=#{pte.productTypeLevel},
+		        Remark=#{pte.remark},
+		        DataStatus=#{pte.dataStatus},
+		        ProductTypeNo=#{pte.productTypeNo}
+	            where
+		        ProductTypeId=#{pte.productTypeId}
+	</update>
+     <delete id="deleteProduct" >
+		delete from ProductType where ProductTypeId=#{productTypeId}
+	</delete>
+	 <!-- 校验-->
+	
+	 <select id="ProductTypeListCheck"  resultType="int">
+       select count(*) from ProductType where 1=1
+       <if test="productTypeId !=null and productTypeId !='' ">
+			and  ProductTypeId !=#{productTypeId}
+		</if>
+       <if test="productTypeLevel !=null and productTypeLevel !='' ">
+			and ProductTypeLevel=#{productTypeLevel}
+		</if>
+		<if test="productTypeNo !=null and productTypeNo !='' ">
+			and ProductTypeNo=#{productTypeNo}
+		</if>
+   </select>
+</mapper>

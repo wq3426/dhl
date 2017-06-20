@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.souvi.sysmanager.licenseType.mapper.LicenseTypeMapper">
+	
+	<!-- 项目列表 -->
+	<select id="getlicenseTypeList" resultType="com.souvi.sysmanager.licenseType.entity.LicenseType">
+		select * from LicenseType
+		<where>
+			 1 = 1
+			<if test="le.licenseType != null and le.licenseType != ''">
+				and LicenseType like '%${le.licenseType}%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 校验添加时证照类型唯一 -->
+	<select id="licenseTypeChecktwo"  resultType="int">
+		select count(*) from LicenseType where 1=1
+		<if test="licenseType != null and licenseType != ''">
+			and LicenseType = #{licenseType}  
+		</if>
+	</select>
+	<!-- 校验编辑时证照类型唯一 -->
+	<select id="licenseTypeCheck"  resultType="int">
+		select count(*) from LicenseType where 1=1
+		<if test="licenseId != null and licenseId != '' ">
+			and LicenseId != #{licenseId}  
+		</if>
+		<if test="licenseType != null and licenseType != ''">
+			and LicenseType = #{licenseType}  
+		</if>
+	</select>
+	<!-- 添加项目 -->
+	<insert id="addlicenseType">
+		INSERT INTO 
+			LicenseType 
+		(	
+			LicenseId,LicenseType,LicenseStatus,DataStatus,Remark
+			,CreateBy,CreateDate
+		) 
+		VALUES 
+		(
+			#{le.licenseId},#{le.licenseType},#{le.licenseStatus},#{le.dataStatus}
+			,#{le.remark},#{le.createBy},#{le.createDate}
+			
+		)
+	</insert>
+	<!-- 去修改页面 -->
+	<select id="toupdatelicenseType" resultType="com.souvi.sysmanager.licenseType.entity.LicenseType">
+		select * from LicenseType where LicenseId = #{licenseId}
+	</select>
+
+	<!-- 修改项目数据 -->
+	<update id="updatelicenseType">
+		update 
+			LicenseType 
+		set 
+			LicenseType = #{le.licenseType},LicenseStatus = #{le.licenseStatus}
+			,DataStatus = #{le.dataStatus},Remark = #{le.remark}
+			,LastUpdateBy = #{le.lastUpdateBy},LastUpdateDate = #{le.lastUpdateDate}
+			
+		where 
+		LicenseId = #{le.licenseId}
+	</update>
+	<!-- 删除项目数据 -->
+	<delete id="deletelicenseType">
+		delete from LicenseType where LicenseId = #{licenseId}
+	</delete>
+</mapper>

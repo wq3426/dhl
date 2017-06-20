@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.souvi.sysmanager.productManagement.mapper.ProductMapper">
+	
+	<!-- 产品列表 -->
+	<select id="getProductList" resultType="com.souvi.sysmanager.productManagement.entity.Product">
+		select pd.ProductId,pd.Material,pd.ProductName,sc.Value AuditStatus
+		,pd.DataStatus,pd.DataSources,pd.ProductionCompany,pd.ValidityPeriod,pd.StorageCondition,project.ProjectName 
+		from Product pd
+		left join Project project
+		on pd.ProjectId = project.ProjectId 
+		left join SystemConfig sc 
+		on pd.AuditStatus = sc.ConfigId 
+		<where>
+			 1 = 1
+			<if test="product.material != null and product.material != ''">
+				and pd.Material like '%${product.material}%'
+			</if>
+			<if test="product.projectName != null and product.projectName != ''">
+				and project.ProjectName like '%${product.projectName}%'
+			</if>
+			<if test="product.model != null and product.model != ''">
+				and pd.Model like '%${product.model}%'
+			</if>
+			<if test="product.productionCompany != null and product.productionCompany != ''">
+				and pd.ProductionCompany like '%${product.productionCompany}%'
+			</if>
+		</where>
+	</select>
+	<!-- 查询项目列表 -->
+	<select id="getProjectList" resultType="com.souvi.sysmanager.projectManage.entity.ProjectManage">
+		select * from Project where DataStatus = 'Y'
+	</select>
+	<!-- 查询产品类型 -->
+	<select id="getProductTypeList" resultType="com.souvi.sysmanager.productType.entity.ProductType">
+		select * from ProductType 
+		<where>
+			 1 = 1
+			<if test="productType.productTypeName != null and productType.productTypeName != ''">
+				and ProductTypeName like '%${productType.productTypeName}%'
+			</if>
+			<if test="productType.productTypeLevel != null and productType.productTypeLevel != ''">
+				and ProductTypeLevel like '%${productType.productTypeLevel}%'
+			</if>
+		</where>
+		and DataStatus = 'Y'
+	</select>
+	<!-- 通过产品的ID查询产品更新数据 -->
+	<select id="getProductUpdate" resultType="com.souvi.sysmanager.productManagement.entity.ProductUpdate">
+		select * from ProductUpdate where projectId = #{projectId} and material = #{material} and UpdateStatus = 'N'
+	</select>
+	<!-- 通过ID查询产品更新的详细数据 -->
+	<select id="getDetails" resultType="com.souvi.sysmanager.productManagement.entity.ProductUpdate">
+		select pU.*,project.ProjectName
+		from ProductUpdate pU
+		left join Project project
+		on pU.ProjectId = project.ProjectId
+		where pU.productId = #{productUpdateId}
+	</select>
+	<!-- 驳回产品信息的更新 -->
+	<update id="reject">
+		update 
+			ProductUpdate 
+		set 
+		UpdateStatus = 'R'
+		where 
+		ProductId = #{productUpdateId}
+	</update>
+	<!-- 更新产品信息 -->
+	<update id="updateDetails">
+		update 
+			Product
+		set 
+		MaterialDescription = #{productUpdate.materialDescription},Uom = #{productUpdate.uom}
+		,MateralType = #{productUpdate.materalType},ProductName = #{productUpdate.productName},Model = #{productUpdate.model}
+		,JANCode = #{productUpdate.janCode},InplantFlag = #{productUpdate.inplantFlag},ShippingCondition = #{productUpdate.shippingCondition}
+		,Weight = #{productUpdate.weight},Size = #{productUpdate.size},TraceType = #{productUpdate.traceType},CFDAStatecode = #{productUpdate.cfdaStatecode}
+		,ValidManage = #{productUpdate.validManage},ValidManageDays = #{productUpdate.validManageDays}
+		,IsitColdChainStorage = #{productUpdate.isitColdChainStorage},StorageCondition = #{productUpdate.storageCondition}
+		,ValidityPeriod = #{productUpdate.validityPeriod},ProductionCompanyLicense = #{productUpdate.productionCompanyLicense}
+		,ProductionLicenseHolder = #{productUpdate.productionLicenseHolder},ProductionCompany = #{productUpdate.productionCompany}
+		,ProductType = #{productUpdate.productType}
+		,Remark1 = #{productUpdate.remark1}
+		,Remark2 = #{productUpdate.remark2},Remark3 = #{productUpdate.remark3},Remark4 = #{productUpdate.remark4},Remark5 = #{productUpdate.remark5}
+		,Remark6 = #{productUpdate.remark6},Remark7 = #{productUpdate.remark7},Remark8 = #{productUpdate.remark8}
+		,Remark9 = #{productUpdate.remark9},Remark10 = #{productUpdate.remark10},LastUpdateBy = #{productUpdate.lastUpdateBy}
+		,LastUpdateDate = #{productUpdate.lastUpdateDate}
+		where 
+		ProductId = #{productId}
+		
+		update 
+			ProductUpdate 
+		set 
+		UpdateStatus = 'C'
+		where 
+		ProductId = #{productUpdateId}
+	</update>
+	<!-- 添加/编辑时验证   项目名称+物料号必须唯一  -->
+	<select id="toCheckProduct"  resultType="int">
+		select count(*) from Product where ProjectId = #{projectId} and Material = #{material}
+		<if test="productId != null and productId != '' ">
+			and ProductId != #{productId}  
+		</if>
+	</select>
+	<!-- 添加产品 -->
+	<insert id="addProduct">
+		INSERT INTO 
+			Product 
+		(	
+			ProductId,ProjectId,Material,MaterialDescription,MateralType
+			,ProductName,Model,JANCode,Uom,InplantFlag,ShippingCondition
+			,Weight,Size,TraceType,CFDAStatecode,ValidManage,ValidManageDays
+			,IsitColdChainStorage,StorageCondition,ValidityPeriod,ProductionCompanyLicense
+			,ProductionLicenseHolder,ProductionCompany,ProductType,AuditStatus
+			,DataStatus,DataSources,Remark1,Remark2,Remark3,Remark4,Remark5
+			,Remark6,Remark7,Remark8,Remark9,Remark10,CreateBy,CreateDate
+		) 
+		VALUES 
+		(
+			#{product.productId},#{product.projectId},#{product.material},#{product.materialDescription}
+			,#{product.materalType},#{product.productName},#{product.model},#{product.janCode},#{product.uom}
+			,#{product.inplantFlag},#{product.shippingCondition},#{product.weight},#{product.size}
+			,#{product.traceType},#{product.cfdaStatecode},#{product.validManage},#{product.validManageDays}
+			,#{product.isitColdChainStorage},#{product.storageCondition},#{product.validityPeriod}
+			,#{product.productionCompanyLicense},#{product.productionLicenseHolder}
+			,#{product.productionCompany},#{product.productType},#{product.auditStatus}
+			,#{product.dataStatus},#{product.dataSources},#{product.remark1},#{product.remark2},#{product.remark3}
+			,#{product.remark4},#{product.remark5},#{product.remark6},#{product.remark7},#{product.remark8}
+			,#{product.remark9},#{product.remark10},#{product.createBy},#{product.createDate}
+		)
+	</insert>
+	<!-- 查询产品数据 -->
+	<select id="getProductByID" resultType="com.souvi.sysmanager.productManagement.entity.Product">
+		select pd.*,project.ProjectName  
+		from Product pd
+		left join Project project
+		on pd.ProjectId = project.ProjectId  
+		where pd.ProductId = #{productId}
+	</select>
+	<!-- 修改产品数据 -->
+	<update id="updateProduct">
+		update 
+			Product 
+		set 
+			ProjectId = #{product.projectId},Material = #{product.material},MaterialDescription = #{product.materialDescription}
+			,MateralType = #{product.materalType},ProductName = #{product.productName},Model = #{product.model}
+			,JANCode = #{product.janCode},InplantFlag = #{product.inplantFlag},ShippingCondition = #{product.shippingCondition}
+			,Weight = #{product.weight},Size = #{product.size},TraceType = #{product.traceType},CFDAStatecode = #{product.cfdaStatecode}
+			,ValidManage = #{product.validManage},ValidManageDays = #{product.validManageDays}
+			,IsitColdChainStorage = #{product.isitColdChainStorage},StorageCondition = #{product.storageCondition}
+			,ValidityPeriod = #{product.validityPeriod},ProductionCompanyLicense = #{product.productionCompanyLicense}
+			,ProductionLicenseHolder = #{product.productionLicenseHolder},ProductionCompany = #{product.productionCompany}
+			,ProductType = #{product.productType},Remark1 = #{product.remark1},Uom = #{product.uom}
+			,Remark2 = #{product.remark2},Remark3 = #{product.remark3},Remark4 = #{product.remark4},Remark5 = #{product.remark5}
+			,Remark6 = #{product.remark6},Remark7 = #{product.remark7},Remark8 = #{product.remark8}
+			,Remark9 = #{product.remark9},Remark10 = #{product.remark10},LastUpdateBy = #{product.lastUpdateBy}
+			,LastUpdateDate = #{product.lastUpdateDate}
+		where 
+		ProductId = #{product.productId}
+	</update>
+	<!-- 删除产品数据 -->
+	<delete id="deleteProduct">
+		delete from Product where ProductId = #{productId}
+	</delete>
+	<!-- 更改产品的状态 -->
+	<update id="updateStatus">
+		update 
+			Product 
+		set 
+			DataStatus = #{dataStatus}
+		where 
+		ProductId = #{productId}
+	</update>
+	<!-- 添加审批日志 -->
+	<insert id="submitAuditLog">
+		INSERT INTO 
+			AuditLog 
+		(	
+			AuditId,ForeignId,AuditType,AuditStage,AuditPersion
+			,AuditPersionId,AuditStatus,AuditDate,AuditPosition,AuditOpinion
+		) 
+		VALUES 
+		(
+			#{auditLog.auditId},#{auditLog.foreignId},#{auditLog.auditType},#{auditLog.auditStage}
+			,#{auditLog.auditPersion},#{auditLog.auditPersionId},#{auditLog.auditStatus},#{auditLog.auditDate}
+			,#{auditLog.auditPosition},#{auditLog.auditOpinion}
+		)
+	</insert>
+	<!-- 添加邮件发送日志 -->
+	<insert id="submitSendMessageLog">
+		INSERT INTO 
+			SendMessageLog 
+		(	
+			Id,ForeignId,MessageType,Title,NoticeContent
+			,SendChannel,ToList,CreateDate,SendFlag
+		) 
+		VALUES 
+		(
+			#{sendMessageLog.id},#{sendMessageLog.foreignId},#{sendMessageLog.messageType}
+			,#{sendMessageLog.title},#{sendMessageLog.noticeContent}
+			,#{sendMessageLog.sendChannel},#{sendMessageLog.toList}
+			,#{sendMessageLog.createDate},#{sendMessageLog.sendFlag}
+		)
+	</insert>
+	<!-- 先通过产品ID得到审批阶段 -->
+	<select id="getAuditStage" resultType="int">
+		select top 1 AuditStage 
+		from AuditLog 
+		where ForeignId = #{productId} 
+		order by AuditDate desc
+	</select>
+	<!-- 更改项目的审批状态 -->
+	<update id="updateAuditStatus">
+		update 
+			Product 
+		set 
+			AuditStatus = #{audittypeInapproval}
+			<if test="dataStatus != null and dataStatus != ''">
+				, DataStatus = #{dataStatus}
+			</if>
+		where ProductId = #{productId}
+	</update>
+	<!-- 得到项目的审批日志 -->
+	<select id="getAuditLogList" resultType="com.souvi.sysmanager.productManagement.entity.AuditLog">
+		select * from AuditLog where ForeignId = #{productId}
+	</select>
+</mapper>

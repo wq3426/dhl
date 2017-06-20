@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.souvi.sysmanager.systemConfig.mapper.SystemConfigMapper">
+
+	<resultMap type="com.souvi.sysmanager.systemConfig.entity.SystemConfig" id="systemConfigAll">
+		<result column="type" property="type" javaType="java.lang.String"/>
+		<collection property="SystemConfigList" ofType="com.souvi.sysmanager.systemConfig.entity.SystemConfig" javaType="ArrayList">
+			<id column="configId" property="configId" javaType="java.lang.String"/> 
+			<result column="number" property="number" javaType="java.lang.Integer"/>
+			<result column="value" property="value" javaType="java.lang.String"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getListByType" resultType="com.souvi.sysmanager.systemConfig.entity.SystemConfig">
+		select s.* from SystemConfig s 
+		where s.type = #{type} order by number asc
+	</select>
+	
+	<select id="getSystemConfigAll" resultMap="systemConfigAll">
+		select configId,type,number,value from SystemConfig s 
+		where status='Y'
+		order by type,number
+	</select>
+	
+	
+</mapper>
