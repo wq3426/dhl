@@ -1,0 +1,293 @@
+﻿<html>
+	<head>
+		<base href="/yard/html/" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+		
+		
+
+        <style>
+			.navbar-nav>li>a:hover{
+				background-color:rgb(255, 204, 0);
+			}
+			label{
+				margin-top:6px;
+			}
+        </style>
+		
+		
+       <script language="JavaScript" src="js/Config.js"></script>
+	   <script language="JavaScript" src="js/DhlStyle.js"></script>
+       
+
+        <script>
+		 
+		var ErrorMap=new Array();
+		ErrorMap["addBerth.do"]="添加";
+		ErrorMap["selectBerthList.do"]="查询";
+		ErrorMap["updateBerthInfo.do"]="修改";
+		ErrorMap["deleteBerthInfo.do"]="删除";	
+		
+		 
+		var Add_Data=
+		{
+			berth_id	:	"unique",
+			berth_number:	"",
+			berth_status:	""
+		}
+
+		var OutLinkData=
+		{
+			berth_status:
+			[
+				{
+					id:1,
+					status:"启用"
+				},
+				{
+					id:0,
+					status:"停用"
+				}
+			]
+		}
+								
+		 
+		var StatusConvetor=
+		{
+					berth_status:function(value,node)
+					{
+						if(value==1)
+						{
+							node.SetColor("Green");
+							return "启用";
+							
+						}else{
+						
+							node.SetColor("Red");
+							return "停用";
+						}	
+					}
+		}			
+			
+        window.onload = function(){	
+			InitTemplate()
+			UseDhlStyle();
+			BindDataTo("#Add_Dialog",Add_Data,OutLinkData,StatusConvetor);
+			BindFunction("#Add_Submit","#Add_Dialog",function(flag,data,node){
+				if(data["berth_number"]!=null && data["berth_number"]!="undefined" && data["berth_number"]!=""){
+					AjaxPost("../berth/addBerth.do",data,function(status,msg){
+						if(msg.result==1){
+							CuminClear("#Add_Dialog");
+							ReBind();
+						}
+					},null);
+				}else{
+					alert("泊位号不能为空！")
+				}
+			},true);
+			
+			//查询方法绑定
+			BindFunction("#Query_Submit",null,function(){
+				ReBind();
+			});
+
+        }			
+			
+		function ReBind(){
+			//发送查询请求
+				AjaxGet("../berth/selectBerthList.do?berth_number="+GetContent("#Query_Dialog"),null,
+				//成功执行
+				function(status,msg){
+					//绑定请求数据
+					BindDataTo("#AjaxTable",msg.data,null,StatusConvetor);
+					//给修改按钮添加事件
+					BindFunction("#AjaxTable","修改",function(flag,data,node){
+							//将要修改的节点添加到修改模态框上
+								BindDataTo("#Modify_Dialog",data,OutLinkData,StatusConvetor);
+								//给修改按钮绑定提交事件
+								BindFunction("#Modify_Submit","#Modify_Dialog",function(add_flag,add_data,add_node){
+									if(data["berth_number"]!=null && data["berth_number"]!="undefined" && data["berth_number"]!=""){
+										AjaxPost("../berth/updateBerthInfo.do",add_data,function(status,modify_data){
+											if(modify_data.result==1){
+												CloseBootstrapModal("#update");
+												ReBind();
+											}
+										},null);
+									}else{
+										alert("泊位号不能为空！")
+									}
+								})
+						
+					
+					
+						
+					},null);
+					//给删除按钮添加事件
+					BindFunction("#AjaxTable","删除",function(flag,data,node){
+						var mymessage=confirm("确认定删除吗？");  
+						if(mymessage==true)  
+						{  
+							//提交要删除的节点
+							AjaxGet("../berth/deleteBerthInfo.do?berth_id="+flag,null,function(status,delete_data){
+								if(delete_data.result==1){
+									ReBind();
+								}
+							},null);
+						}  
+					},null);
+				},null);
+		}
+        </script>
+    </head>
+	<body>
+
+		<div id="dhlMenu">
+			<div>
+				<div class="btn-group">
+					<img class="btn-group" id="dhlflag" class="img-responsive"/>
+				</div>
+
+				<div  class="btn-group" style="vertical-align:bottom;">
+					<ul id="dhlMenuButton" class="nav navbar-nav">
+						<li><a href="BerthManagement.html">泊位监控</a></li>
+						<li><a href="BerthManagement.html">泊位管理</a></li>
+						<li><a href="SupplieManagement.html">供应商管理</a></li>
+						<li><a href="PlanAppend.html">计划追加</a></li>
+						<li><a href="History.html">历史查询</a></li>
+						<li><a href="../login/logOut.do">退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="errorNode">
+			<div id="errorMessage">
+				
+			</div>
+		</div>
+		
+		
+		<!--Bootstrap增加模态框-->
+		<div class="modal fade" id="add">
+			<div class="modal-dialog" role="document" style="width:700px;">
+				 <div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="partModalLabel">添加|泊位信息</h4>
+					</div>
+					<div class="modal-body">
+						<div id="Add_Dialog" class="form-horizontal">
+							 <div template="berth_id">
+								<div class="form-group">
+									<label class="col-sm-3 control-label text-right">泊位号</label>
+									<div class="col-sm-9">
+										<input type="text"  id="Add_Validity" class="form-control" field="berth_number" placeholder="泊位号" json>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label text-right">状态</label>
+									<div class="col-sm-9" >
+									<select field="berth_status" out="" class="form-control">
+											<option>请选择</option>
+											<option template="status" field="id" cuminText="status" style="display:none"></option>
+									</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button id="Add_Submit" type="button" class="btn btn-primary">确定</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		<!--修改-->
+		<div class="modal fade" id="update">
+			<div class="modal-dialog" role="document" style="width:700px;">
+				 <div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="partModalLabel">修改|泊位信息</h4>
+					</div>
+					<div class="modal-body">
+						<div id="Modify_Dialog" class="form-horizontal">
+							<div template="berth_id">
+								<div  field="berth_id" style="display:none" json></div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label text-right">泊位号</label>
+									<div class="col-sm-9">
+										<input type="text" id="Modify_Validity" class="form-control" field="berth_number" placeholder="泊位号" json>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label text-right">状态</label>
+									<div class="col-sm-9" >
+									<select field="berth_status" out="" class="form-control">
+											<option>请选择</option>
+											<option template="status" field="id" cuminText="status" style="display:none" ></option>
+									</select>
+									</div>
+								</div>
+							</div> 
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button id="Modify_Submit" type="button" class="btn btn-primary">修改</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		
+		<form class="form-inline" role="form">
+				<div class="form-group">
+					<div  class="col-xs-3 col-sm-4" style="padding-right:0px">
+					<label class="control-label">泊位号:</label>
+					</div>
+					<div class="col-xs-7 col-sm-8" style="padding:0px">
+						<input type="text" id="Query_Dialog"  class="form-control"  placeholder="泊位号">
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<button id="Query_Submit" type="button" class="col-xs-2 col-sm-12 btn btn-default single" >
+						<span class="glyphicon glyphicon-search" style="padding-top:2px;margin-bottom:4px;"></span>
+					</button>
+				</div>
+				<div class="form-group">
+					<button Id="AddButton" type="button" class="col-xs-12 col-sm-12 btn btn-default" data-toggle="modal" data-target="#add" style="margin:10 0;">添加</button>
+				</div>
+		</form>
+		
+		
+		
+		<div style="margin:10px;margin-bottom:35px;">
+			<table class="table table-striped" style="font-size:12px">
+				<thead>
+					 <tr>
+						<th>序号</th>
+						<th style="display:none"></th>
+						<th>泊位号</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="AjaxTable">
+					<tr template="berth_id">
+						<td sortnumber></td>
+						<td field="berth_id" json style="display:none"></td>
+						<td field="berth_number" json></td>
+						<td field="berth_status" json></td>
+						<td>
+							<a operator="berth_id" data-toggle="modal" data-target="#update">修改</a> | <a operator="berth_id">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

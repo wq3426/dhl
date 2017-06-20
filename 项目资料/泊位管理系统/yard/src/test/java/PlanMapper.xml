@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace 指定关联的dao接口 -->	
+<mapper namespace="com.souvi.sysmanager.plan.mapper.PlanMapper">
+
+	<!-- *************** Mybatis + Sql Server 2008 语法汇总 ***************** -->
+
+	<!-- 查询供应商-泊位及泊位状态关联列表 -->
+	<select id="getSupplierBerthMapList" resultType="com.souvi.sysmanager.plan.entity.SupplierBerthMapInfo">
+		select t1.sid, t1.bid, t2.berth_number, t3.supplier_name 
+			from yard_berth_supplier_map t1, yard_berth t2, yard_supplier t3
+		<where>
+			t1.sid = t3.supplier_id and t1.bid = t2.berth_id
+			<if test="supplier_name != null and supplier_name != ''">
+				and t3.supplier_name like '%${supplier_name}%'
+			</if>
+		</where>
+	</select>
+	
+	<!-- 按日期获取计划数 -->
+	<!-- 
+	CONVERT(varchar(100), p.create_time, 23)  将日期转换为yyyy-mm-dd的字符串
+	 -->
+	<select id="getPlanCountByDate" resultType="int">
+		select COUNT(*) from yard_plan p where CONVERT(varchar(100), p.plan_date, 23) = #{date}
+	</select>
+	
+	<!-- 按日期获取计划执行时间间隔 -->
+	<select id="getTimeLengthOfPlan" resultType="com.souvi.sysmanager.plan.entity.PlanTimeLength">
+		select time_length from yard_plan_timelength where date = #{date}
+	</select>
+	
+	<!-- 新增计划执行时间间隔设置 -->
+	<insert id="addPlanTimeLength">
+		insert into yard_plan_timelength(date, time_length, creater, create_time, last_updater, update_time)
+			values(#{time_length.date}, #{time_length.time_length}, #{time_length.creater}, #{time_length.create_time}, #{time_length.last_updater}, #{time_length.update_time})
+	</insert>
+	
+	<!-- 修改计划时间间隔 -->
+	<update id="updatePlanTimeLength">
+		update yard_plan_timelength 
+			set time_length = #{time_length.time_length}, last_updater = #{time_length.last_updater}, update_time = #{time_length.update_time}
+		where date = #{time_length.date}
+	</update>
+	
+	<!-- 按日期获取最大排序号的计划 -->
+	<select id="getMaxSortNumberPlan" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select top 1 
+				*
+			from yard_plan where plan_date = #{date} order by sort_number desc
+	</select>
+	
+	<!-- 按日期获取最后完成的计划 -->
+	<select id="getLastCompletedPlan" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select top 1
+				*
+			from yard_plan where plan_date = #{date} and plan_endtime is not null
+			order by plan_endtime desc
+	</select>
+	
+	<!-- 获取预定 或 追加计划列表 -->
+	<select id="getPlanListByType" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select * from yard_plan 
+			where plan_date = #{date} and plan_type = #{plan_type}
+			order by plan_starttime
+	</select>
+	
+	<!-- 泊位计划添加 -->
+	<insert id="addPlan">
+		insert into yard_plan(item_number, item_name, item_type, vans_type, vans_description, box_count, plan_date, plan_starttime, 
+							  start_time, supplier_id, berth_id, sort_number, plate_number, driver_contact, waiting_berth_number, 
+							  waiting_berth_starttime, description, creater, create_time, last_updater, update_time, plan_type)
+			values(#{plan.item_number}, #{plan.item_name}, #{plan.item_type}, #{plan.vans_type}, #{plan.vans_description}, #{plan.box_count}, 
+			       #{plan.plan_date}, #{plan.plan_starttime}, #{plan.start_time}, #{plan.supplier_id}, #{plan.berth_id}, #{plan.sort_number}, 
+			       #{plan.plate_number}, #{plan.driver_contact}, #{plan.waiting_berth_number}, #{plan.waiting_berth_starttime}, #{plan.description}, 
+			       #{plan.creater}, #{plan.create_time}, #{plan.last_updater}, #{plan.update_time}, #{plan.plan_type})
+	</insert>
+	
+	<!-- 按顺序查询计划表中的泊位id集合 -->
+	<select id="getberthIdListOfPlan" resultType="string">
+		select distinct(p.berth_id)
+		from yard_plan p, yard_berth b, yard_supplier s 
+		where p.berth_id = b.berth_id and p.supplier_id = s.supplier_id
+		<if test="supplier_name != null and supplier_name != ''">
+			and s.supplier_name like '%${supplier_name}%'
+		</if>
+		<if test="berth_number != null and berth_number != ''">
+			and b.berth_number like '%${berth_number}%'
+		</if>
+		order by p.berth_id
+	</select>
+	
+	<!-- 
+		isnull(plan_endtime, 0) plan_endtime如果为null，返回0，否则返回plan_endtime
+		(case isnull(plan_endtime, 0) when 0 then 0 else 1 end)  如果值为0 返回0,否则返回1
+	 -->
+	<select id="getPlanListByBerthId" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select (case isnull(plan_endtime, 0) when 0 then 0 else 1 end) plan_status, p.*
+		from yard_plan p, yard_supplier s 
+		where p.supplier_id = s.supplier_id
+		<if test="berth_id != null and berth_id != ''">
+			and p.berth_id = #{berth_id}
+		</if>
+		<if test="supplier_name != null and supplier_name != ''">
+			and s.supplier_name like '%${supplier_name}%'
+		</if>
+		order by p.berth_id, p.plan_starttime
+	</select>
+	
+	<!-- DATEDIFF(mi, p.start_time, p.end_time) 求两个时间差，以分钟(mi或n)为单位, 计算时用后一个参数减去前一个参数 -->
+	<select id="getBusyBerthPlanInfo" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select top 1
+			b.berth_number, p.sort_number, p.plate_number, p.start_time, DATEDIFF(mi, p.start_time, p.end_time) duration_time
+		from yard_plan p, yard_berth b where p.berth_id = b.berth_id
+		and p.berth_id = #{berth_id} and p.end_time is null and p.start_time is not null
+		order by p.plan_starttime desc
+	</select>
+	
+	<!-- 
+	 &gt; 大于
+	 <if test="...">and p.plan_starttime &lt;= #{query_end_time}</if>    &lt; 小于
+	 <if test="..."><![CDATA[and p.plan_starttime <= #{query_end_time}]]></if>  <![CDATA[]]>  用其包裹需要转义的代码，说明需要转义
+	 <if test="query_end_time != null and query_end_time != ''"></if>  test条件是字符串的使用方式
+	 <if test="sort_number > 0"></if> test条件是数字的使用方式
+	 -->
+	<!-- 查询已经完成的历史计划信息 -->
+	<select id="selectHistoryPlan" resultType="com.souvi.sysmanager.plan.entity.PlanInfo">
+		select p.plan_starttime, p.start_time, p.end_time, p.plan_endtime, p.plan_date,
+			   s.supplier_name, p.sort_number, b.berth_number, p.waiting_berth_number, p.plate_number
+		from yard_plan p, yard_berth b, yard_supplier s 
+		where p.berth_id = b.berth_id and p.supplier_id = s.supplier_id
+		<if test="query_start_time != null and query_start_time != ''">
+			and p.plan_starttime >= #{query_start_time}
+		</if>
+		<if test="query_end_time != null and query_end_time != ''">
+			and p.plan_starttime &lt;= #{query_end_time}
+		</if>
+		<if test="berth_number != null and berth_number != ''">
+			and b.berth_number = #{berth_number}
+		</if>
+		<if test="plate_number != null and plate_number != ''">
+			and p.plate_number = #{plate_number}
+		</if>
+		<if test="sort_number > 0">
+			and p.sort_number = #{sort_number}
+		</if>
+		and p.plan_endtime is not null
+		order by p.plan_starttime
+	</select>
+	
+</mapper>

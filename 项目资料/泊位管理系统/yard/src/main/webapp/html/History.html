@@ -1,0 +1,241 @@
+﻿<html>
+	<head>
+		<base href="/yard/html/" />
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+		<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+		<script src="js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+		
+
+        <style>
+			.navbar-nav>li>a:hover{
+				background-color:rgb(255, 204, 0);
+			}
+			label{
+				margin-top:6px;
+			}
+        </style>
+		
+		
+       <script language="JavaScript" src="js/Config.js"></script>
+	   <script language="JavaScript" src="js/DhlStyle.js"></script>
+       
+
+        <script>
+		 
+
+		var ErrorMap=new Array();
+		ErrorMap["addBerth.do"]="添加";
+		ErrorMap["selectBerthList.do"]="查询";
+		ErrorMap["updateBerthInfo.do"]="修改";
+		ErrorMap["deleteBerthInfo.do"]="删除";	
+		
+		 		
+			
+        window.onload = function(){	
+			InitTemplate()
+			UseDhlStyle();
+			BindBootstrapDatePicker("#StartTime");	
+			BindBootstrapDatePicker("#EndTime");	
+			
+			
+			
+			//查询方法绑定
+			BindFunction("#Query_Submit","#Query_Dialog",function(q_flag,q_data,q_node){
+				AjaxGet("../plan/selectHistoryPlan.do",q_data,function(q_status,q_msg){
+					if(q_msg.result==1){
+						BindDataTo("#AjaxTable",q_msg.data);
+					}
+				})
+			});
+        }			
+		
+		function BindBootstrapDatePicker(name){
+			$(name+" .glyphicon-th").datetimepicker({
+				language:  'zh-CN',
+				format:"yyyy-mm-dd hh:ii:ss",
+				todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				showMeridian: 1,
+				bootcssVer:3
+			}).on('changeDate', function(ev){
+				$(name+" input").val(Format(ev.date));
+			});
+			$(name+" .glyphicon-remove").click(function(){
+				$(name+" input").val(null);
+			
+			});
+		}
+		
+		function Format(date){
+			var year=date.getFullYear();  
+			var month=FillZero(date.getMonth()+1);  
+			var day=FillZero(date.getDate());  
+			var hour=FillZero(date.getHours());  
+			var minute=FillZero(date.getMinutes());  
+			var second=FillZero(date.getSeconds());  
+			var time=year+'-'+month+'-'+day+' '+hour+':'+minute+':'+second;  
+			return time;
+		}
+		function FillZero(time){  
+			if(time<10){  
+				return "0"+time;  
+			}else{  
+				return time;  
+			}  
+		}  
+        </script>
+    </head>
+	<body>
+
+		<div id="dhlMenu">
+			<div>
+				<div class="btn-group">
+					<img class="btn-group" id="dhlflag" class="img-responsive"/>
+				</div>
+
+				<div  class="btn-group" style="vertical-align:bottom;">
+					<ul id="dhlMenuButton" class="nav navbar-nav">
+						<li><a href="BerthManagement.html">泊位监控</a></li>
+						<li><a href="BerthManagement.html">泊位管理</a></li>
+						<li><a href="SupplieManagement.html">供应商管理</a></li>
+						<li><a href="PlanAppend.html">计划追加</a></li>
+						<li><a href="History.html">历史查询</a></li>
+						<li><a href="../login/logOut.do">退出</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="errorNode" >
+			<div id="errorMessage">
+				
+			</div>
+		</div>
+		
+		
+		<form id="Query_Dialog" role="form" Action="../plan/exportExcelOfHistoryPlan.do" Method="GET" target="_blank">
+			<div class="row text-center">
+				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-3" style="margin-top:10px">
+					<div class="row">
+						<div  class="col-xs-4 col-sm-3 col-md-4 col-lg-4">
+							<label class="control-label">起始时间:</label>
+						</div>
+						<div class="col-xs-8 col-sm-9 col-md-8 col-lg-8">
+							<div id="StartTime" class="input-group date">
+								<input id="StartTimeValue" field="query_start_time" json  class="form-control"  name="query_start_time" type="text" placeholder="起始时间">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							</div> 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-5 col-lg-3" style="margin-top:10px">
+					<div class="row">
+						<div  class="col-xs-4 col-sm-3  col-md-4 col-lg-4">
+							<label class="control-label">结束时间:</label>
+						</div>
+						<div class="col-xs-8 col-sm-9 col-md-8 col-lg-8" >
+							<div id="EndTime" class="input-group date">
+								<input id="StartTimeValue" field="query_end_time" json  class="form-control"  name="query_end_time" type="text" placeholder="结束时间">
+								<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+								<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+							</div> 
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-xs-12 col-sm-4 col-md-5 col-lg-2" style="margin-top:10px">
+					<div class="row">
+						<div  class="col-xs-4 col-sm-5 col-md-4 col-lg-6">
+							<label class="control-label">泊位号:</label>
+						</div>
+						<div class="col-xs-8 col-sm-7 col-md-8 col-lg-6" >
+							<input type="text" field="berth_number" json name="berth_number" class="form-control"  placeholder="泊位号">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-5 col-lg-2" style="margin-top:10px">
+					<div class="row">
+						<div  class="col-xs-4 col-sm-5 col-md-4 col-lg-6">
+							<label class="control-label">车牌号:</label>
+						</div>
+						<div class="col-xs-8 col-sm-7 col-md-8 col-lg-6" >
+							<input type="text" field="plate_number" json name="plate_number" class="form-control"  placeholder="车牌号">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-4 col-md-5 col-lg-2" style="margin-top:10px;margin-bottom:10px">
+					<div class="row">
+						<div  class="col-xs-4 col-sm-5 col-md-4 col-lg-6">
+							<label class="control-label">排序号:</label>
+						</div>
+						<div class="col-xs-8 col-sm-7 col-md-8 col-lg-6" >
+							<input type="text" field="sort_number" json name="sort_number" class="form-control"  placeholder="排序号">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-9 col-md-6 col-lg-2 pull-right" style="margin-top:10px">
+					<div class="row">
+						<div  class="col-xs-6 col-sm-4 col-md-4 col-lg-6">
+							<button id="Query_Submit" type="button" class="btn btn-default single"  style="width:100%">
+								<span class="glyphicon glyphicon-search" style="padding-top:2px;margin-bottom:3px;"></span>
+								<span>查询</span>
+							</button>
+						</div>
+						<div class="col-xs-6 col-sm-4 col-md-4 col-lg-6">
+							<button Id="ExcelButton" type="Submit" class="btn btn-default" style="width:100%">
+								<span class="glyphicon glyphicon-arrow-down"></span>
+								<span>导出表格</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		
+		<div style="margin:10px;margin-bottom:35px;">
+			<table class="table table-striped" style="font-size:12px">
+				<thead>
+					 <tr>
+						<th>序号</th>
+						<th>计划年份</th>
+						<th>计划日期</th>
+						<th>供应商名称</th>
+						<th>泊位号</th>
+						<th>开始时间</th>
+						<th>驶入时间</th>
+						<th>驶离时间</th>
+						<th>结束时间</th>
+						<th>车牌号</th>
+						<th>排队序号</th>
+						<th>等候泊位号</th>
+					</tr>
+				</thead>
+				<tbody id="AjaxTable">
+					<tr template>
+						<td sortnumber></td>
+						<td field="year" ></td>
+						<td field="plan_date" ></td>
+						<td field="supplier_name" ></td>
+						<td field="berth_number" ></td>
+						<td field="plan_starttime" ></td>
+						<td field="start_time" ></td>
+						<td field="end_time" ></td>
+						<td field="plan_endtime" ></td>
+						<td field="plate_number" ></td>
+						<td field="sort_number" ></td>
+						<td field="waiting_berth_number" ></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>

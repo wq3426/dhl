@@ -1,0 +1,277 @@
+﻿<html>
+	<head>
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+		
+		
+
+        <style>
+			.navbar-nav>li>a:hover{
+				background-color:rgb(255, 204, 0);
+			}
+			label{
+				margin-top:6px;
+			}
+        </style>
+		
+		
+      
+
+        <link rel="stylesheet" href="css/CuminDialog.css">
+        <script language="JavaScript" src="js/Request.js"></script>
+		<script language="JavaScript" src="js/DhlStyle.js"></script>
+
+         <script>
+		 
+		 
+		 var ajax_data = 
+		 [
+			{
+				Id: 4,
+				Name: "abc",
+				Status: 1
+			},
+			{
+				Id: 10,
+				Name: "abc1",
+				Status: 1
+			},
+			{
+				Id: 33,
+				Name: "abc2",
+				Status: 0
+			}
+        ]
+		 
+		 
+		 
+		var Add_Data=
+		{
+			Id		:	"",
+			Name	:	"",
+			Status	:	""
+		}
+
+		var OutLinkData=
+		{
+			Status:
+			[
+				{
+					Id:1,
+					Status:"启用"
+				},
+				{
+					Id:0,
+					Status:"停用"
+				}
+			]
+		}
+								
+		 var template=
+		 {
+			error		 :	null
+		 }
+		 
+		var StatusConvetor=
+		{
+					Status:function(value,node)
+					{
+						if(value==1)
+						{
+							node.SetColor("Green");
+							return "启用";
+							
+						}else{
+						
+							node.SetColor("Red");
+							return "停用";
+						}	
+					}
+		}			
+			
+        window.onload = function(){
+			UseDhlStyle();
+			
+			BindDataTo("#Add_Template",Add_Data,"#Add_Dialog",OutLinkData,StatusConvetor);
+			BindFunction("#Add_Submit","#Add_Dialog",function(flag,data,node){
+				AjaxPost("http://localhost:8080/yard/plan/添加.do",data,null,null);
+			});
+			
+			BindFunction("#Query_Submit",null,function(){
+				AjaxGet("http://localhost:8080/yard/plan/getSupplierBerthMapList.do&supplier_name="+GetContent("#Query_Dialog"),
+				function(msg){
+					//从ajax绑定数据到展示表格
+					BindDataTo("#AjaxTable",msg,null,null,StatusConvetor);
+					//给修改按钮添加ajax事件
+					BindFunction("#AjaxTable","修改",function(flag,data,node){
+						BindDataTo("#Add_Template",msg,"#Modify_Dialog");
+						BindFunction("#Modify_Submit","#Modify_Dialog",function(add_flag,add_data,add_node){
+								AjaxPost("http://localhost:8080/yard/plan/修改.do",add_data,null,null);
+						})
+					},null);
+					BindFunction("#AjaxTable","删除",function(flag,data,node){
+						AjaxGet("http://localhost:8080/yard/plan/删除.do&Id="+flag,null,null,null);
+					},null);
+				},
+				function(msg){
+					//从ajax绑定数据到展示表格
+					BindDataTo("#AjaxTable",ajax_data,null,null,StatusConvetor);
+					//给修改按钮添加ajax事件
+					BindFunction("#AjaxTable","修改",function(flag,data,node){
+						BindDataTo("#Add_Template",data,"#Modify_Dialog",OutLinkData);
+						BindFunction("#Modify_Submit","#Modify_Dialog",function(add_flag,add_data,add_node){
+								AjaxPost("http://localhost:8080/yard/plan/修改.do",add_data,null,null);
+						})
+					},null);
+					BindFunction("#AjaxTable","删除",function(flag,data,node){
+						AjaxGet("http://localhost:8080/yard/plan/删除.do&Id="+flag,null,null,null);
+					},null);
+				});
+			});
+
+        }			
+			
+			
+        </script>
+    </head>
+	<body>
+
+		<div id="dhlMenu">
+			<div>
+				<div class="btn-group">
+					<img class="btn-group" id="dhlflag" class="img-responsive"/>
+				</div>
+
+				<div  class="btn-group" style="vertical-align:bottom;">
+					<ul id="dhlMenuButton" class="nav navbar-nav">
+						<li><a href="index.html">主页</a></li>
+						<li><a href="index.html">泊位监控</a></li>
+						<li><a href="index.html">泊位管理</a></li>
+						<li><a href="index.html">供应商管理</a></li>
+						<li><a href="index.html">计划追加</a></li>
+						<li><a href="index.html">历史查询</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div id="errorNode" >
+			<div id="errorMessage">
+				
+			</div>
+		</div>
+		
+		
+		<!--蒙层-->
+		<div id="cumin-dialog-cover"></div>
+		<!--增加-->
+		<!--增加数据模板-->
+		<div id="Add_Template" style="display:none">
+			<div template="id">
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-right">泊位号</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" field="Name" placeholder="泊位号" json>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-right">状态</label>
+					<div class="col-sm-9" >
+					<select id="OutLinkStatus" field="Status" out="" class="form-control">
+							<option>请选择</option>
+							<option template="Status" field="Id" cuminText="Status"></option>
+					</select>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Bootstrap增加模态框-->
+		<div class="modal fade" id="add">
+			<div class="modal-dialog" role="document" style="width:700px;">
+				 <div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="partModalLabel">添加|泊位信息</h4>
+					</div>
+					<div class="modal-body">
+						<div id="Add_Dialog" class="form-horizontal">
+							 
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button id="Add_Submit" type="button" class="btn btn-primary">确定</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		<!--修改-->
+		<div class="modal fade" id="update">
+			<div class="modal-dialog" role="document" style="width:700px;">
+				 <div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="partModalLabel">修改|泊位信息</h4>
+					</div>
+					<div class="modal-body">
+						<div id="Modify_Dialog" class="form-horizontal">
+							 
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							<button id="Modify_Submit" type="button" class="btn btn-primary">修改</button>
+						</div>
+					</div>
+				</div>
+			 </div>
+		</div>
+		
+		<form class="form-inline" role="form">
+				<div class="form-group">
+					<div  class="col-xs-3 col-sm-4" style="padding-right:0px">
+					<label class="control-label">泊位号:</label>
+					</div>
+					<div class="col-xs-7 col-sm-8" style="padding:0px">
+						<input type="text" id="Query_Dialog"  class="form-control"  placeholder="泊位号">
+					</div>
+					
+				</div>
+				<div class="form-group">
+					<button id="Query_Submit" type="button" class="col-xs-2 col-sm-12 btn btn-default single" >
+						<span class="glyphicon glyphicon-search" style="padding-top:2px;margin-bottom:4px;"></span>
+					</button>
+				</div>
+				<div class="form-group">
+					<button Id="AddButton" type="button" class="col-xs-12 col-sm-12 btn btn-default" data-toggle="modal" data-target="#add" style="margin:10 0;">添加</button>
+				</div>
+		</form>
+		
+		
+		
+		<div style="margin:10px">
+			<table class="table table-striped" style="font-size:12px">
+				<thead>
+					 <tr>
+						<th>#</th>
+						<th>泊位号</th>
+						<th>状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="AjaxTable">
+					<tr template="Id">
+						<td field="Id" json></td>
+						<td field="Name" json></td>
+						<td field="Status" json></td>
+						<td>
+							<a operator="Id" data-toggle="modal" data-target="#update">修改</a> | <a operator="Id">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</body>
+</html>
