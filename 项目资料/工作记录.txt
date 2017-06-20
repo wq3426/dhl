@@ -15,8 +15,6 @@
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
-   - 输入参数校验
-   - 用户登出
    - websocket的使用
    - 华为接口参数获取
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
@@ -28,6 +26,7 @@
    - SpringMVC的异常处理
    - 导入导出Excel的工具类
    - SQL Server图形界面工具
+   - Spring AOP的配置使用
 
  - SQL Server数据库开发常用sql语法熟悉
  - log4j在项目中的使用   （需要将日志发送给华为）
