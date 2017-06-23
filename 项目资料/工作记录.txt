@@ -14,6 +14,8 @@
 
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
+华为Portal: CN_DHL_IoT / Changeme_123
+
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
@@ -59,3 +61,4 @@ s 2 3 5
 b 8 12 13 14
 
 2017-06-06 09:00:00.000
+eb24eff3-c2c5-4d9a-b6d2-e0752e3e3a77
