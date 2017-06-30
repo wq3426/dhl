@@ -16,6 +16,12 @@
 
 华为Portal: CN_DHL_IoT / Changeme_123
 
+DHL调试机器账号密码：souvicont001 / exel0612#
+
+DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
+
+项目部署路径：http://10.210.16.41:8098/yard  访问路径：http://epod.dhl.com/yard
+
 华为李亮：18321830496
 苏通夏工：13918697206
 
