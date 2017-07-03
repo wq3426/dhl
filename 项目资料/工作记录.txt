@@ -31,14 +31,15 @@ softradio
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
+   - 设备修改时是否自动完成重新注册
    - 计划修改测试
    - 计划修改，对计划完成增加判断：前面有未完成计划，不允许完成计划
    - 解析码流中的IMEI号：3-17 byte 2 16 NbiotServlet_DEMO 71行
    - websocket使用测试
    - 命令下发：InterfaceDemo
    - https添加
-   - flms项目报表pdf导出
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
+   - flms项目报表pdf导出
    - 泊位管理系统需求文档 v1.3 文档数据字典修改
 
    - mybatis怎样不返回所有实体类字段 resultMap的type指定为hashmap
