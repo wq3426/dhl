@@ -20,6 +20,12 @@ https://book.douban.com/subject/2240612/
 https://www.douban.com/note/250299177/
 
 
+websocket:
+
+http://cache.baiducontent.com/c?m=9d78d513d99e01fa4fece4690d61c0676915c223678b85027ea4c708c03b0c041a26baac26520704a4d27d1744f8194beb802172401421c7da95d9138afd85295f9f2743671df61b418f4ff19c0632c050875a9eb81897fca778d5b9d3a39a0303dd52753bdda1d20d4603cb1faa476db5f8ce08025f61ad9d37728e5f6028ef7c13f210a5f7331e10f7f6ca2d4ed45bd2766190bb72f0601def55e25d0c2537bd51f44d143130971e7baf1a6051d3fc5d907b241f3eb71ee8ea9df4b617d78fb62cdae7cca42d9562ecc3fdf90618360da4&p=8a7fc91a93d912a05abd9b7e0e1583&newp=923fda5986cc41ac5bf7d62d021489231610db2151d4db116b82c825d7331b001c3bbfb423241102d0c17f6704ad4e56e8f231713c072ba3dda5c91d9fb4c574799265&user=baidu&fm=sc&query=org%2Espringframework%2Eweb%2Esocket%2Ehandler%2ETextWebSocketHandler+%B5%C4maven%D2%C0%C0%B5&qid=ebb5757400028cc6&p1=1
+
+http://www.myexception.cn/web/1775480.html
+
  ‰»Î–£—È£∫
 
 http://www.cnblogs.com/beiyan/p/5946345.html
