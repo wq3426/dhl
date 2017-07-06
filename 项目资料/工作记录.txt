@@ -30,7 +30,6 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
 问题记录：
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
-   - websocket使用测试
    - https添加
    - bug修改列表：添加预定计划，与追加计划冲突，预定计划会和追加计划时间重叠
    - Controller类异常信息返回修改
@@ -45,6 +44,7 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
    - mybatis怎样不返回所有实体类字段 resultMap的type指定为hashmap
    - 泊位监控列表条件查询用#报错，用$就好了，为啥？
    - 自动化的输入校验怎么弄？
+   - websocket使用测试
    - SpringMVC的异常处理
    - 导入导出Excel的工具类
    - SQL Server图形界面工具
