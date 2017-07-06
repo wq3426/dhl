@@ -37,6 +37,7 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
      泊位状态：
      查询供应商-泊位关联状态    http://localhost:8080/yard/plan/getSupplierBerthMapList.do
      泊位监控-泊位计划展示列表  http://localhost:8080/yard/plan/getBerthPlanMonitorList.do
+   - 泊位需求文档添加设备管理部分说明
    - 日志模块  华为日志 + 操作日志(外网部署时需要)
    - flms项目报表pdf导出
    - 泊位管理系统需求文档 v1.3 文档数据字典修改
