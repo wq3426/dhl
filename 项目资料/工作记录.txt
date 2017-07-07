@@ -17,7 +17,7 @@
 
 华为Portal: CN_DHL_IoT / Changeme_123
 
-DHL调试机器账号密码：souvicont001 / exel0612#
+DHL调试机器账号密码：souvicont001/bjsn004 / exel0612#
 
 DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
 
@@ -31,8 +31,8 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
 
  - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
    - https添加
+   - 自考交钱
    - bug修改列表：添加预定计划，与追加计划冲突，预定计划会和追加计划时间重叠
-   - Controller类异常信息返回修改
    - 计划添加、修改测试、数据推送变更计划驶离时间测试、泊位状态测试
      泊位状态：
      查询供应商-泊位关联状态    http://localhost:8080/yard/plan/getSupplierBerthMapList.do
