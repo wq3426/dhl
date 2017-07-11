@@ -55,6 +55,7 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
    - flms项目报表pdf导出
 
 
+   - SpringMVC单例模式验证：BasicController的resultJson设置
    - mybatis怎样不返回所有实体类字段 resultMap的type指定为hashmap
    - 泊位监控列表条件查询用#报错，用$就好了，为啥？
    - 自动化的输入校验怎么弄？
