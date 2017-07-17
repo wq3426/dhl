@@ -42,6 +42,7 @@ truncate table yard_device;
 truncate table yard_device_data;
 
 【个人事项备忘】
+ - http://www.b499.cn/index.php/lottery/hemai
  - 拼音学习视频：悟空拼音
  - 查询社保情况
  - 体检报告（慈铭）
