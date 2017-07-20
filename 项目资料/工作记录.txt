@@ -43,6 +43,7 @@ truncate table yard_device;
 truncate table yard_device_data;
 
 【个人事项备忘】
+ - 给家里打钱
  - 拼音学习视频：悟空拼音
  - 查询社保情况
  - 体检报告（慈铭）
@@ -106,6 +107,7 @@ truncate table yard_device_data;
      - 驶入等候泊位时间、驶离等候泊位时间更新
      - 泊位作业状态变更（websocket）
 
+     - openlab重新添加泊位应用，上传证书、profile文件
      - 服务器订阅消息，softradio模拟发送指令到openlab，测试在单向认证的前提下消息推送是否成功
 
      - https使用测试
