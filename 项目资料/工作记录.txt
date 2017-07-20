@@ -43,6 +43,7 @@ truncate table yard_device;
 truncate table yard_device_data;
 
 【个人事项备忘】
+ - 算工资
  - 给家里打钱
  - 拼音学习视频：悟空拼音
  - 查询社保情况
