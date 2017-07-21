@@ -66,6 +66,7 @@ truncate table yard_device_data;
 
      - openlab重新添加泊位应用，上传证书、profile文件
      - 服务器订阅消息，softradio模拟发送指令到openlab，测试在单向认证的前提下消息推送是否成功
+     - 双向认证测试
 
      - 计划添加、修改、监控计划修改、泊位状态变更（影响计划开始时间）功能测试
 
