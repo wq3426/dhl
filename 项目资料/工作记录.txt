@@ -17,7 +17,9 @@
 
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
-华为Portal: 地址：https://112.93.129.154:8843/#/  账号、密码：CN_DHL_IoT / Changeme_123
+华为Portal: 
+ - 地址：https://112.93.129.154:8843/#/  
+ - 账号、密码：CN_DHL_IoT / Changeme_123
 
 DHL调试机器账号密码：souvicont001/bjsn004 / exel0612#
 
@@ -66,9 +68,11 @@ truncate table yard_device_data;
 
      - openlab重新添加泊位应用，上传证书、profile文件
      - 服务器订阅消息，softradio模拟发送指令到openlab，测试在单向认证的前提下消息推送是否成功
-     - 双向认证测试
+     - 双向认证测试问题
+       - 设备上报的数据，推送以后openlab是否清除？
+       - 双向认证模式下，如果设置clientAuth="true",则访问失败，提示：SSL 对等端无法核实您的证书。 错误代码: SSL_ERROR_BAD_CERT_ALERT
 
-     - 计划添加、修改、监控计划修改、泊位状态变更（影响计划开始时间）功能测试
+     - 计划添加、修改、监控计划修改、泊位使用状态变更（影响计划开始时间）、泊位作业状态变更功能测试
 
      - https使用测试
 
@@ -119,4 +123,5 @@ truncate table yard_device_data;
      - SVN
    - 技术管理（代码规范），项目进度把控（敏捷开发，项目周期制定）
    - MyEclipse注释模板设置
+   - 正则表达式学习
 
