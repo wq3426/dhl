@@ -59,22 +59,7 @@ truncate table yard_device_data;
 
  【问题】：
 
-    计划顺延 / 修改计划开始时间
-     - 修改的计划的开始时间不能早于最后一个已完成计划的结束时间，如果早，往后顺延
-     - 修改的计划开始时间跟后面的预定计划有冲突，放到预定计划之后，然后将受影响的追加计划往后重排
-
-     - 驶入等候泊位时间、驶离等候泊位时间更新
-     - 泊位作业状态变更（websocket）测试
-
-     - openlab重新添加泊位应用，上传证书、profile文件
-     - 服务器订阅消息，softradio模拟发送指令到openlab，测试在单向认证的前提下消息推送是否成功
-     - 双向认证测试问题
-       - 设备上报的数据，推送以后openlab是否清除？
-       - 双向认证模式下，如果设置clientAuth="true",则访问失败，提示：SSL 对等端无法核实您的证书。 错误代码: SSL_ERROR_BAD_CERT_ALERT
-
      - 泊位监控页面：显示作业泊位关联的等候泊位，变色。
-
-     - 计划添加、修改、监控计划修改、泊位使用状态变更（影响计划开始时间）、泊位作业状态变更功能测试
 
      - https使用测试
  
@@ -82,10 +67,6 @@ truncate table yard_device_data;
 
  【bug修改、测试】
    - bug修改列表：
-     - 计划添加、修改测试、数据推送变更计划驶离时间测试、泊位状态测试
-     - 泊位状态：
-       - 查询供应商-泊位关联状态    http://localhost:8080/yard/plan/getSupplierBerthMapList.do
-       - 泊位监控-泊位计划展示列表  http://localhost:8080/yard/plan/getBerthPlanMonitorList.do
      - 实体类字段默认值设置
 
  【文档完善】
