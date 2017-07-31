@@ -18,8 +18,13 @@
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
 华为Portal: 
- - 地址：https://112.93.129.154:8843/#/  
+ - 地址：https://112.93.129.154:8843/#/
  - 账号、密码：CN_DHL_IoT / Changeme_123
+ - 地址：https://43.254.3.221:8843/#/
+ - 账号、密码：DHLDHLDHL / Huawei12#$
+ - 地址：https://218.4.33.72:8843/#/
+ - 账号、密码：IoT_RemoteLab38 / eSDKwr456**
+
 
 DHL调试机器账号密码：souvicont001/bjsn004 / exel0612#
 
