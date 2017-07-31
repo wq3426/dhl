@@ -84,6 +84,7 @@ truncate table yard_device_data;
 【技术学习、问题解决】
  
  泊位系统待学习、解决问题：
+   - 如何让开发环境在生产和测试之间切换
    - 本地tomcat启动失败原因
    - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
    - 使用https后，eclipse的tomcat停止时会弹错
