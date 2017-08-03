@@ -13,7 +13,7 @@
 
  - CFDA http://epod.dhl.com/svn/0023/02-Branches/V2             代码名称：CFDA
 
-企业邮箱：wangqiang@souvi.com / qiye@163
+企业邮箱：wangqiang@souvi.com / Wq342651808
 
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
@@ -40,6 +40,7 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
 苏通夏工：13918697206
 华为隋婷婷：15151523600
 华为熊盼举：15191444321
+杜鹏程：13916708802  dpc8693496
 
 IMEI号：863703030131523
 
@@ -76,7 +77,6 @@ truncate table yard_device_data;
  【文档完善】
 
    - 使用手册        7月31号
-   - 测试用例文档    8月1、2号
 
    - IOT对接流程整理
 
