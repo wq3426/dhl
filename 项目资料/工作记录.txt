@@ -13,7 +13,7 @@
 
  - CFDA http://epod.dhl.com/svn/0023/02-Branches/V2             代码名称：CFDA
 
-企业邮箱：wangqiang@souvi.com / Wq342651808
+企业邮箱：wangqiang@souvi.com / Wq342651808 初始密码：qiye@163
 
 项目管理：http://epod.dhl.com/redmine/login  qiang.wang / 8888
 
