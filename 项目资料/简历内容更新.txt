@@ -1,0 +1,27 @@
+https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_4_dg&wd=%E6%B3%8A%E4%BD%8D%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F&oq=%25E6%25B3%258A%25E4%25BD%258D%25E7%25AE%25A1%25E7%2590%2586%25E8%25A5%25BF%25E5%25AE%25AB&rsv_pq=a366b63b000468dc&rsv_t=2654N%2FLzeS1pV0wjow1JN2C5Za9otPLrODR35F3Xc1tDfJ8OV2ICLBBdkct3ADeggk88&rqlang=cn&rsv_enter=1&inputT=1145&rsv_sug3=36&rsv_sug1=15&rsv_sug7=000&rsv_sug2=0&rsv_sug4=1364&rsv_sug=1
+
+
+北京华路时代信息技术股份有限公司
+
+开发环境：JDK8 + Eclipse + Tomcat8.0 + Sql Server 2008 + Spring MVC + Spring + MyBatis + HTML5 + AngularJS
+
+业务简介：
+此项目为DHL物流的泊位管理系统，开发目的是为了提高物流园区泊位装卸的使用效率，
+
+功能简介：
+
+
+
+
+
+
+两个月试用期间，采用前后端分离的开发模式，独立完成后端功能的设计、实现，与前端、APP配合进行接口对接，并让项目按期顺利上线，
+目前项目已在DHL柳州物流中心上线运行，独立实现了数据库设计，功能开发，APP接口对接，华为NB-IOT北向应用对接，泊位车辆作业计划智能排序，
+websocket实时显示泊位作业情况。
+
+优点：善于沟通，能够站在技术开发、用户交互体验等多角度看待开发设计和功能实现，能够深入理解功能需求背后的用户需求，做到灵活实现。
+
+欠缺：年龄偏大，技术积累不算丰富，但学习适应能力强。
+
+
+只要活着就有希望。
