@@ -5,7 +5,7 @@ https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=monline_4_dg&wd=%E6%B3%8A%E4%BD
 
 开发环境：JDK8 + Eclipse + Tomcat8.0 + Sql Server 2008 + Spring MVC + Spring + MyBatis + HTML5 + AngularJS
 
-业务简介：
+项目简介：
 此项目为DHL物流的泊位管理系统，使用华为的智慧园区解决方案，通过华为的NB-IOT平台，将车感器硬件设备同web应用关联，使用BI工具动态展示泊位使用效率等
 分析指标，提高物流园区泊位装卸的使用效率。项目目前处于step1，step2、step3正在酝酿当中。
 
