@@ -122,7 +122,7 @@ order by plan_starttime
    - Spring AOP的配置使用
    - Power Designer如何建数据模型，以及如何跟数据库关联
    - SQL Server数据库开发常用sql语法熟悉
-   - log4j在项目中的使用   （需要将日志发送给华为）
+   - log4j在项目中的使用
    - maven的使用
    - 前后端分离的开发模式是怎样的，理解restful的含义和应用
    - 学习开发环境搭建
