@@ -42,8 +42,6 @@ DHL远程服务器账号密码：IP：10.210.16.41  appladmin / exel2012#
 华为熊盼举：15191444321
 杜鹏程：13916708802  dpc8693496
 
-IMEI号：863703030131523
-
 
 【泊位系统清理表数据语句】
 delete from yard_berth;
@@ -76,8 +74,6 @@ order by plan_starttime
 【当前工作任务记录】
 
  【问题】：
-
-  - 生产、测试环境配置、部署
      
  
  【bug修改、测试】
@@ -111,7 +107,6 @@ order by plan_starttime
  
  泊位系统待学习、解决问题：
    - 如何让开发环境在生产和测试之间切换
-   - 本地tomcat启动失败原因
    - 用户登录状态控制  session + cookie  登录拦截器、listener、输入参数校验（非空、类型、唯一性）
    - 使用https后，eclipse的tomcat停止时会弹错
    - mybatis怎样不返回所有实体类字段 resultMap的type指定为hashmap
