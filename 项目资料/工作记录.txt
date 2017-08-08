@@ -54,11 +54,20 @@ truncate table yard_plan;
 truncate table yard_device;
 truncate table yard_device_data;
 
+delete from yard_plan where plan_id = 66
+
+select plan_id, plate_number, sort_number, plan_type, plan_starttime, plan_time, start_time, end_time, plan_endtime,
+float_time, waiting_berth_number, waiting_berth_starttime, waiting_berth_endtime
+from yard_plan where berth_id = 87 
+and plan_date = '2017-07-28' 
+and is_deleted = 0 
+order by plan_starttime
+
 【个人事项备忘】
- - 查询6月份社保是否有交
- - 到好大夫询问脸上的疤如何祛除
  - 准备简历，查看万亮推荐的职位、微信搜集的职位
  - 拼音学习视频：悟空拼音
+ - 到好大夫询问脸上的疤如何祛除
+ - 查询6月份社保是否有交
  - 体检报告（慈铭）
  - 给家里买测脂体重秤
  - 找吉他学习视频
@@ -68,19 +77,34 @@ truncate table yard_device_data;
 
  【问题】：
 
-     - 泊位监控页面：显示作业泊位关联的等候泊位，变色。
+  - 生产、测试环境配置、部署
+     
  
  【bug修改、测试】
-   - bug修改列表：
-     - 实体类字段默认值设置
+
+  - 实体类字段默认值设置
 
  【文档完善】
 
-   - 使用手册        7月31号
+  - IOT对接流程整理
 
-   - IOT对接流程整理
+  项目审计问题：密码由数字、字母、下划线组成(复杂密码的规则，最少8位)，加密保存，每90天提醒用户更新
 
-   项目审计问题：密码由数字、字母、下划线组成(复杂密码的规则，最少8位)，加密保存，每90天提醒用户更新
+ 【系统功能优化】
+
+  - 多选情况，增加全选按钮
+
+  - 登录、查询等操作绑定enter事件
+
+  - 泊位监控页面：显示作业泊位关联的等候泊位，变色。
+
+  - 泊位监控：等待时长倒计时，做成后台定时器计时。
+
+  - 泊位监控：如果计划间隔时间过长，如何不让作业泊位在空闲时进入渴望等待。（加一个开关，后台定时查询，如果计划开始执行，则将开关打开）
+
+  - 修改所有获取计划查询sql，不再按日期获取计划，而是按大于开始时间获取。
+
+  - 有没有什么方法，能把车感器的数据上报和车牌号绑定起来。
 
 
 【技术学习、问题解决】
@@ -113,4 +137,6 @@ truncate table yard_device_data;
    - MyEclipse注释模板设置
    - 正则表达式学习
    - 大数据工程师的工作内容，大数据的应用前景
+   - 学习绘制流程图
+   - 学习绘制原型图（工具软件：Axure RP 8）
 
