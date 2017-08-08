@@ -1,0 +1,1052 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF8">
+    <title></title>
+    <style type="text/css">
+        #container {
+            margin: 8px;
+        }
+
+        .param-table {
+            background: #E6E6E6;
+            border: 1px solid #FFF;
+            margin: 12px 0;
+            border-collapse: collapse;
+        }
+
+        .param-table th {
+            background: gray;
+            color: #FFF;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid #FFF;
+            padding: 5px;
+        }
+
+        .param-table td {
+            border-collapse: collapse;
+            border: 1px solid #FFF;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .param-table .th-name {
+            min-width: 140px;
+        }
+
+        .param-table .th-identifier {
+            min-width: 140px;
+        }
+
+        .param-table .th-type {
+            min-width: 100px;
+        }
+
+        .param-table .th-remark {
+            min-width: 200px;
+        }
+
+        .param-table .td-name {}
+
+        .param-table .td-identifier {}
+
+        .param-table .td-type   { color: #990000; }
+
+        .param-table .td-remark { color: #666; }
+
+        .param-table .tr-level-1 { background: #F5F5F5; }
+        .param-table .tr-level-1 .td-identifier { padding-left: 5px; }
+
+        .param-table .tr-level-2 { background: #E6E6E6; }
+        .param-table .tr-level-2 .td-identifier { padding-left: 15px; }
+
+        .param-table .tr-level-3 { background: #CCCCCC; }
+        .param-table .tr-level-3 .td-identifier { padding-left: 25px; }
+
+        .param-table .tr-level-4 { background: #E6E6E6; }
+        .param-table .tr-level-4 .td-identifier { padding-left: 35px; }
+
+        .param-table .tr-level-5 { background: #CCCCCC; }
+        .param-table .tr-level-5 .td-identifier { padding-left: 45px; }
+
+        .param-table .tr-level-6 { background: #E6E6E6; }
+        .param-table .tr-level-6 .td-identifier { padding-left: 55px; }
+
+        .param-table .tr-level-7 { background: #CCCCCC; }
+        .param-table .tr-level-7 .td-identifier { padding-left: 65px; }
+
+        .param-table .tr-level-8 { background: #E6E6E6; }
+        .param-table .tr-level-8 .td-identifier { padding-left: 75px; }
+
+        .param-table .tr-level-9 { background: #CCCCCC; }
+        .param-table .tr-level-9 .td-identifier { padding-left: 85px; }
+
+        .param-table .tr-level-10 { background: #E6E6E6; }
+        .param-table .tr-level-10 .td-identifier { padding-left: 95px; }
+
+        .param-table .tr-level-11 {
+            background: #CCCCCC;
+        }
+        .param-table .tr-level-11 .td-identifier { padding-left: 105px; }
+
+        .param-table .tr-level-12 {
+            background: #E6E6E6;
+        }
+        .param-table .tr-level-12 .td-identifier { padding-left: 115px; }
+
+        .param-table .tr-level-13 {
+            background: #CCCCCC;
+        }
+        .param-table .tr-level-13 .td-identifier { padding-left: 125px; }
+    </style>
+</head>
+<body>
+<div id="container">
+            <div class="module">
+            <h1>1&nbsp;某模块（点击编辑后双击修改）</h1>
+                            <div class="page">
+                    <h2>1.1&nbsp;泊位管理</h2>
+                                            <div class="action">
+                            <h3>1.1.1&nbsp;查询泊位列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/selectBerthList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>包含根据泊位号的条件查询</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选，条件查询参数</td></tr><tr class="tr-level-1"><td class="td-name">每页显示记录条数</td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-01 16:33:31.343&#39;,&#39;2017-06-01 16:28:02.0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-01 16:33:31.343&#39;,&#39;2017-06-01 16:28:02.0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位状态 1 启用 0 停用</td><td class="td-identifier">berth_status</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,8)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;1&#39;,&#39;2&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---0 作业泊位 1 等候泊位</td><td class="td-identifier">berth_type</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位排序号</td><td class="td-identifier">berth_sort_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.2&nbsp;泊位号校验</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/checkBerthNumber.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>泊位号唯一性校验，校验泊位号是否已经存在</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---1已经存在 0 不存在</td><td class="td-identifier">is_exist</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.3&nbsp;添加泊位号</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/addBerth.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位排序号，默认为0</td><td class="td-identifier">berth_sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位状态</td><td class="td-identifier">berth_status</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位类型 0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.4&nbsp;查询单个泊位信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/getBerthInfoById.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>根据id查询泊位信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位表主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-01 16:33:31.343</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---泊位状态 1 启用 0 停用</td><td class="td-identifier">berth_status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-01 16:33:31.343</td></tr><tr class="tr-level-2"><td class="td-name">---0 作业泊位 1 等候泊位</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位排序号</td><td class="td-identifier">berth_sort_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.5&nbsp;修改泊位信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/updateBerthInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位表主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位状态</td><td class="td-identifier">berth_status</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位排序号</td><td class="td-identifier">berth_sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位类型 0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.6&nbsp;删除泊位信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/deleteBerthInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>如果该泊位已经与供应商或者某个计划关联过，将提示不允许删除</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位表主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.1.7&nbsp;修改作业泊位等待时长</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/updateBerthTimeLength.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">作业等待时长</td><td class="td-identifier">work_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">渴望等待时长</td><td class="td-identifier">yearn_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.2&nbsp;供应商管理</h2>
+                                            <div class="action">
+                            <h3>1.2.1&nbsp;查询供应商列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/selectSupplierList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>包含根据供应商名称的条件查询</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">每页显示记录条数</td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">可选，条件查询参数</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|3</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-02 14:28:02.0&#39;,&#39;2017-06-02 15:05:31.0&#39;,&#39;2017-06-03 13:28:02.0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(2,3,5)</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;bbb&#39;,&#39;ccc&#39;,&#39;aaa&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-02 14:28:02.0&#39;,&#39;2017-06-02 15:32:12.0&#39;,&#39;2017-06-03 13:28:02.0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---供应商状态 1 启用 0 停用</td><td class="td-identifier">supplier_status</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1,1)</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---已经关联泊位主键id集合，以&quot;,&quot;分隔</td><td class="td-identifier">berth_ids</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;8&#39;,&#39;&#39;,&#39;&#39;)</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.2&nbsp;供应商校验</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/checkSupplierName.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>供应商唯一性校验，校验供应商是否已经存在</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---1已经存在 0 不存在</td><td class="td-identifier">is_exist</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.3&nbsp;添加供应商</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/addSupplier.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">供应商状态</td><td class="td-identifier">supplier_status</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.4&nbsp;查询单个供应商信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/getSupplierInfoById.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>根据id查询供应商信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---最后修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-02 14:28:02.0</td></tr><tr class="tr-level-2"><td class="td-name">---供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-02 14:28:02.0</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=aaa</td></tr><tr class="tr-level-2"><td class="td-name">---供应商状态 1 启用 0 停用</td><td class="td-identifier">supplier_status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.5&nbsp;修改供应商信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/updateSupplierInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商状态</td><td class="td-identifier">supplier_status</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.6&nbsp;删除供应商信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/deleteSupplierInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>当该供应商已经与某个计划关联，提示不允许删除；
+删除供应商时，会先在中间表中删除该供应商关联的泊位信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.7&nbsp;添加供应商-泊位关联</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/addMapWithBerthes.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>泊位号id字符串berth_ids，以逗号","为分隔符，可以为空字符串，代表删除该供应商关联的泊位</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位主键id字符串</td><td class="td-identifier">berth_ids</td><td class="td-type">string</td><td class="td-remark">必须，主键id之间以逗号分隔</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.2.8&nbsp;查询可关联的泊位列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/supply/getMapBerthes.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>供应商-泊位关联-获取可关联的泊位列表</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">berth_list|6</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------0 作业泊位 1 等候泊位</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(8,12,13,14,18,21)</td></tr><tr class="tr-level-3"><td class="td-name">------泊位排序号</td><td class="td-identifier">berth_sort_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;111&#39;,&#39;10087&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.3&nbsp;泊位计划管理</h2>
+                                            <div class="action">
+                            <h3>1.3.1&nbsp;查询供应商-泊位关联状态</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getSupplierBerthMapList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">可选，条件查询参数</td></tr><tr class="tr-level-1"><td class="td-name">每页显示记录条数</td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---供应商主键id</td><td class="td-identifier">sid</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=bbb</td></tr><tr class="tr-level-2"><td class="td-name">---0 空闲 1 忙碌</td><td class="td-identifier">berth_use_status</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">bid</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.2&nbsp;设置计划执行时间间隔</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/setPlanTimeLength.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>默认时间间隔为8分钟</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">时间间隔（分钟）</td><td class="td-identifier">time_length</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=设置计划时间间隔成功</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.3&nbsp;计划追加</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/addAdditionalBerthPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">零件名称</td><td class="td-identifier">item_name</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">零件号</td><td class="td-identifier">item_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">车型描述</td><td class="td-identifier">vans_description</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">描述</td><td class="td-identifier">description</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">车型</td><td class="td-identifier">vans_type</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">零件类型</td><td class="td-identifier">item_type</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">标准装框数（个）</td><td class="td-identifier">box_count</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.4&nbsp;获取计划执行时间间隔</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getPlanTimeLength.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=获取计划时间间隔成功</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划执行时间间隔（分钟）</td><td class="td-identifier">time_length</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.5&nbsp;泊位调度-泊位计划展示列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getBerthDispatchPlanList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">页码</td><td class="td-identifier">page</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">每页显示记录条数</td><td class="td-identifier">pageSize</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">计划排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位计划list</td><td class="td-identifier">plan_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位驶入时间</td><td class="td-identifier">waiting_berth_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-07 08:00:00.0&#39;,&#39;2017-06-07 08:08:00.0&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;ddfdfdf&#39;,&#39;ddfdfdf&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">vans_type</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------类型 1 追加计划 2 预定计划</td><td class="td-identifier">plan_type</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">item_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------说明</td><td class="td-identifier">description</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------最后更新人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;wq&#39;,&#39;wq&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">item_name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">item_type</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------计划日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-07 00:00:00.0&#39;,&#39;2017-06-07 00:00:00.0&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------计划实际结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(2,2)</td></tr><tr class="tr-level-3"><td class="td-name">------最后更新时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-07 15:12:41.0&#39;,&#39;2017-06-07 16:22:17.0&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位驶离时间</td><td class="td-identifier">waiting_berth_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------浮动时间</td><td class="td-identifier">float_time</td><td class="td-type">number</td><td class="td-remark">@mock=$order(0,0)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">vans_description</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(8,8)</td></tr><tr class="tr-level-3"><td class="td-name">------</td><td class="td-identifier">box_count</td><td class="td-type">number</td><td class="td-remark">@mock=$order(0,0)</td></tr><tr class="tr-level-3"><td class="td-name">------计划完成状态  0 未完成 1 已完成</td><td class="td-identifier">plan_status</td><td class="td-type">number</td><td class="td-remark">@mock=$order(0,0)</td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;14&#39;,&#39;14&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,2)</td></tr><tr class="tr-level-3"><td class="td-name">------计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,2)</td></tr><tr class="tr-level-3"><td class="td-name">------创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-07 15:12:41.0&#39;,&#39;2017-06-07 16:22:17.0&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------驶离时间</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;&#39;,&#39;&#39;)</td></tr><tr class="tr-level-3"><td class="td-name">------计划预计开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-07 08:00:00.0&#39;,&#39;2017-06-07 08:08:00.0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---泊位状态 0 空闲 1 忙碌</td><td class="td-identifier">berth_use_status</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.6&nbsp;泊位调度-泊位计划详情</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getBerthPlanDetails.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>点击泊位后根据泊位状态(0 空闲 1 忙碌)的不同返回不同的详情信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划预计开始时间【泊位空闲时返回】</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-07 08:08:00.0 泊位空闲时返回</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---计划完成百分比</td><td class="td-identifier">plan_completed_ratio</td><td class="td-type">string</td><td class="td-remark">@mock=33.33%</td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=ddfdfdf</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间【泊位忙碌时返回】</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-07 08:16:00.0  泊位忙碌时返回</td></tr><tr class="tr-level-2"><td class="td-name">---持续时间（分钟）【泊位忙碌时返回】</td><td class="td-identifier">duration_time</td><td class="td-type">number</td><td class="td-remark">@mock=9  泊位忙碌时返回</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.7&nbsp;泊位调度-计划详情</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getPlanDetails.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>点击计划后根据计划完成状态(0 未完成 1 已完成)的不同返回不同的详情信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划预计开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-07 08:16:00.0</td></tr><tr class="tr-level-2"><td class="td-name">---司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=12</td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间（完成计划返回）</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-07 08:16:00.0</td></tr><tr class="tr-level-2"><td class="td-name">---车牌号（未完成计划返回）</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=34dfd</td></tr><tr class="tr-level-2"><td class="td-name">---驶离时间（完成计划返回）</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-07 08:25:00.0</td></tr><tr class="tr-level-2"><td class="td-name">---计划完成百分比（完成计划返回）</td><td class="td-identifier">plan_completed_ratio</td><td class="td-type">string</td><td class="td-remark">@mock=33.33%</td></tr><tr class="tr-level-2"><td class="td-name">---计划结束时间(完成计划返回)</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划完成状态  0 未完成 1 已完成</td><td class="td-identifier">plan_status</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.8&nbsp;计划预定</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/addScheduledBerthPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">车型</td><td class="td-identifier">vans_type</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">零件类型</td><td class="td-identifier">item_type</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">零件号</td><td class="td-identifier">item_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">计划预计开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">必须，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">标准装框数（个）</td><td class="td-identifier">box_count</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">描述</td><td class="td-identifier">description</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">零件名称</td><td class="td-identifier">item_name</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">车型描述</td><td class="td-identifier">vans_description</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.9&nbsp;计划预定-获取供应商-泊位关联的下拉列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getSupplierBerthSelectList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>添加预定计划时指定供应商、泊位号，如果供应商停用或泊位停用，则查询返回空，返回消息“没有可选择的供应商”</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---供应商关联的作业泊位号list</td><td class="td-identifier">work_berth_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------作业泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=87</td></tr><tr class="tr-level-3"><td class="td-name">------作业泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=A</td></tr><tr class="tr-level-2"><td class="td-name">---供应商关联的等候泊位号list</td><td class="td-identifier">waiting_berth_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=88</td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=29</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.10&nbsp;计划修改-获取要修改的计划信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getUpdatePlanInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>未完成的计划，会返回泊位号关联的可用供应商列表，供修改供应商时使用</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=16:17</td></tr><tr class="tr-level-2"><td class="td-name">---计划日期（已完成计划返回）</td><td class="td-identifier">plan_date</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=A</td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=京C33943</td></tr><tr class="tr-level-2"><td class="td-name">---作业开始时间</td><td class="td-identifier">work_start_time</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位号关联的可用供应商列表（未完成计划返回）</td><td class="td-identifier">supplier_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------供应商id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=29</td></tr><tr class="tr-level-3"><td class="td-name">------供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=A</td></tr><tr class="tr-level-3"><td class="td-name">------供应商关联的等候泊位列表</td><td class="td-identifier">waiting_berth_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-4"><td class="td-name">---------等候泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-4"><td class="td-name">---------等候泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=88</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---0 未完成 1 已完成</td><td class="td-identifier">plan_status</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---驶离时间</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---计划结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---浮动时间</td><td class="td-identifier">float_time</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">@mock=14</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.11&nbsp;计划修改</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/updateBerthPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">描述说明</td><td class="td-identifier">description</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id（未完成计划可修改）</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">浮动时间</td><td class="td-identifier">float_time</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">驶离时间（未完成计划可修改）</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">驶入时间（未完成计划可修改）</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.12&nbsp;计划删除</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/deleteBerthPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>只允许删除未完成的计划</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.13&nbsp;计划追加-获取追加计划添加页面信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getAdditionalPlanPreInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>计划追加：显示添加页面相关信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">供应商主键id</td><td class="td-identifier">sid</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">bid</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---当前排序号</td><td class="td-identifier">current_sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=A</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=88</td></tr><tr class="tr-level-2"><td class="td-name">---供应商主键id</td><td class="td-identifier">supplier_id</td><td class="td-type">number</td><td class="td-remark">@mock=29</td></tr><tr class="tr-level-2"><td class="td-name">---供应商关联的等候泊位列表</td><td class="td-identifier">waiting_berth_list</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-3"><td class="td-name">------等候泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=88</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">new_sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.14&nbsp;泊位监控-获取计划监控泊位列表（按类型）</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getMonitorBerthListByType.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|3</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---作业等待时长</td><td class="td-identifier">work_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">@mock=$order(3,3,3)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(91,93,88)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;6&#39;,&#39;8&#39;,&#39;3&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位作业状态 0 渴望 1 等待</td><td class="td-identifier">berth_work_status</td><td class="td-type"></td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---作业泊位当天未完成计划数</td><td class="td-identifier">plan_count</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位类型 0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---渴望等待时长</td><td class="td-identifier">yearn_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">@mock=$order(1,1,1)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位使用状态 0 空闲 1 忙碌</td><td class="td-identifier">berth_use_status</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.15&nbsp;泊位监控-获取监控泊位(作业/等候)信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getMonitorBerthInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>根据泊位类型、泊位使用状态返回不同的json字符串</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位类型 0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---下一个计划车辆等候泊位号</td><td class="td-identifier">next_plan_waiting_berth_number</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=京C49493</td></tr><tr class="tr-level-2"><td class="td-name">---计划排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---司机联系方式</td><td class="td-identifier">driver_contact</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---下一个计划车辆车牌号</td><td class="td-identifier">next_plan_plate_number</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---目标作业泊位号</td><td class="td-identifier">work_berth_number</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---点击的泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---作业等待时长</td><td class="td-identifier">work_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---计划排队号</td><td class="td-identifier">queue_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---下一个计划排序号</td><td class="td-identifier">next_plan_sort_number</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---作业泊位车辆驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---渴望等待时长</td><td class="td-identifier">yearn_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---当前计划开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---1 追加 2 预定</td><td class="td-identifier">plan_type</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位使用状态 0 空闲 1 忙碌</td><td class="td-identifier">berth_use_status</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位驶入时间</td><td class="td-identifier">waiting_berth_starttime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.16&nbsp;泊位监控-根据手机号/车牌号查询计划所在泊位</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getMonitorBerthInfoByCondition.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">查询条件：手机号或车牌号</td><td class="td-identifier">condition</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=95</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=10</td></tr><tr class="tr-level-2"><td class="td-name">---泊位类型 0 作业 1 等候</td><td class="td-identifier">berth_type</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.3.17&nbsp;泊位监控-取消（删除）/ 顺延 / 修改泊位当前计划开始时间</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/operateMonitorBerthPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>请求类型为POST，请求的参数类型为json，即Content Type为"application/json"</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">计划开始时间（yyyy-MM-dd HH:mm:ss）</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">可选，修改计划开始时间时需要传入</td></tr><tr class="tr-level-1"><td class="td-name">0 取消 1 顺延 2 修改</td><td class="td-identifier">operate_type</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">1 追加 2 预定</td><td class="td-identifier">plan_type</td><td class="td-type">number</td><td class="td-remark">可选，顺延或修改计划开始时间时需要传入</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.4&nbsp;登录验证</h2>
+                                            <div class="action">
+                            <h3>1.4.1&nbsp;用户登录</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/login/userLogin.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">密码</td><td class="td-identifier">password</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---最后更新时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-03 15:28:02.0</td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-06-03 15:28:02.0</td></tr><tr class="tr-level-2"><td class="td-name">---真实姓名</td><td class="td-identifier">name</td><td class="td-type">string</td><td class="td-remark">@mock=王强</td></tr><tr class="tr-level-2"><td class="td-name">---用户主键id</td><td class="td-identifier">user_id</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---联系电话</td><td class="td-identifier">telephone</td><td class="td-type">string</td><td class="td-remark">@mock=15010323776     </td></tr><tr class="tr-level-2"><td class="td-name">---工号</td><td class="td-identifier">id_num</td><td class="td-type">string</td><td class="td-remark">@mock=333            </td></tr><tr class="tr-level-2"><td class="td-name">---邮箱</td><td class="td-identifier">email</td><td class="td-type">string</td><td class="td-remark">@mock=342651808@qq.com</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---密码</td><td class="td-identifier">password</td><td class="td-type">string</td><td class="td-remark">@mock=123456</td></tr><tr class="tr-level-2"><td class="td-name">---用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---用户状态 1 启用 0 停用</td><td class="td-identifier">user_status</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---说明</td><td class="td-identifier">decription</td><td class="td-type">string</td><td class="td-remark">@mock=hello yard</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.4.2&nbsp;用户登出</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/login/logOut.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.5&nbsp;历史计划查询</h2>
+                                            <div class="action">
+                            <h3>1.5.1&nbsp;历史计划查询</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/selectHistoryPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>查询已经完成的历史计划信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">结束时间</td><td class="td-identifier">query_end_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">起始时间</td><td class="td-identifier">query_start_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">计划状态 0 未完成 或 1 已完成</td><td class="td-identifier">plan_status</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位驶离时间</td><td class="td-identifier">waiting_berth_endtime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---备注</td><td class="td-identifier">description</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---浮动时间</td><td class="td-identifier">float_time</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=ddfdfdf</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---计划日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">@mock=6月7日</td></tr><tr class="tr-level-2"><td class="td-name">---计划年份</td><td class="td-identifier">year</td><td class="td-type">string</td><td class="td-remark">@mock=2017年</td></tr><tr class="tr-level-2"><td class="td-name">---结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=08:16</td></tr><tr class="tr-level-2"><td class="td-name">---驶离时间</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">@mock=08:16</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=12</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=ccc</td></tr><tr class="tr-level-2"><td class="td-name">---作业开始时间</td><td class="td-identifier">work_start_time</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划状态（未完成或已完成）</td><td class="td-identifier">plan_status</td><td class="td-type">string</td><td class="td-remark">@mock=未完成</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位驶入时间</td><td class="td-identifier">waiting_berth_starttime</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=08:16</td></tr><tr class="tr-level-2"><td class="td-name">---开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=08:16</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.5.2&nbsp;历史计划导出excel</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/exportExcelOfHistoryPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>请求直接弹出下载excel提示框</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">结束时间</td><td class="td-identifier">query_end_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">计划状态 0 未完成 或 1 已完成</td><td class="td-identifier">plan_status</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">起始时间</td><td class="td-identifier">query_start_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.6&nbsp;app接口管理</h2>
+                                            <div class="action">
+                            <h3>1.6.1&nbsp;获取车辆当天计划信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/selectCarPlanOfDate.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>已注册用户按车牌号、日期查询车辆计划信息(默认查询当天)</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result为0时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---驶离时间</td><td class="td-identifier">end_time</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;ddfdfdf&#39;,&#39;ddfdfdf&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;ccc&#39;,&#39;ccc&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;12&#39;,&#39;12&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---年份</td><td class="td-identifier">year</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017年&#39;,&#39;2017年&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---计划排队号</td><td class="td-identifier">queue_number</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---作业开始时间</td><td class="td-identifier">work_start_time</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=$order(3,4)</td></tr><tr class="tr-level-2"><td class="td-name">---计划车辆是否确认驶入 1 是 0 否</td><td class="td-identifier">has_verify_to_berth</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---1 追加 2 预定</td><td class="td-identifier">plan_type</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---计划日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;6月7日&#39;,&#39;6月7日&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2&#39;,&#39;5&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---计划车辆是否开始作业 1 是 0 否</td><td class="td-identifier">has_start_work</td><td class="td-type">number</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.6.2&nbsp;获取车辆历史计划</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/selectCarHistoryPlan.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>已注册用户按车牌号获取历史完成计划信息</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">可选，int类型</td></tr><tr class="tr-level-1"><td class="td-name">车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">结束时间</td><td class="td-identifier">query_end_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr><tr class="tr-level-1"><td class="td-name">起始时间</td><td class="td-identifier">query_start_time</td><td class="td-type">string</td><td class="td-remark">可选，yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|2</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;ddfdfdf&#39;,&#39;ddfdfdf&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---计划日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;6月7日&#39;,&#39;6月7日&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---年份</td><td class="td-identifier">year</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017年&#39;,&#39;2017年&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2&#39;,&#39;5&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---驶离时间</td><td class="td-identifier">end_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=$order(3,4)</td></tr><tr class="tr-level-2"><td class="td-name">---计划开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;12&#39;,&#39;12&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---作业开始时间</td><td class="td-identifier">work_start_time</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;ccc&#39;,&#39;ccc&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---计划结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---驶入时间</td><td class="td-identifier">start_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;08:16&#39;,&#39;08:24&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">result为0时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.6.3&nbsp;获取泊位状态</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/berth/getBerthUseStatus.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>已注册用户查询泊位状态</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位号字符串，如果有多个，用逗号&#39;,&#39;分隔</td><td class="td-identifier">berth_numberStr</td><td class="td-type">string</td><td class="td-remark">必须，多个泊位号用逗号&#39;,&#39;分隔</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---泊位状态 0 空闲 1 忙碌</td><td class="td-identifier">berth_use_status</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.6.4&nbsp;获取车辆计划状态</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/getCarPlanStatus.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>获取车辆计划状态（是否取消）、排序号、排队号（等待计划数）</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---排队号</td><td class="td-identifier">queue_number</td><td class="td-type">number</td><td class="td-remark">@mock=4</td></tr><tr class="tr-level-2"><td class="td-name">---是否已删除 1 是 0 否</td><td class="td-identifier">is_deleted</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---计划排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=4</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.6.5&nbsp;车辆确认驶入作业泊位</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/verifyToDriveIntoWorkBerth.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div>车辆确认开始驶入作业泊位，获取泊位等待作业时长，执行计划</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位设置的等待作业时长</td><td class="td-identifier">work_waiting_timelength</td><td class="td-type">number</td><td class="td-remark">@mock=3</td></tr><tr class="tr-level-2"><td class="td-name">---作业泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.6.6&nbsp;车辆确认开始作业</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/plan/carPlanStartToWork.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">用户名</td><td class="td-identifier">user_name</td><td class="td-type">string</td><td class="td-remark">必须，用于注册用户校验</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=更新计划作业开始时间成功</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---排序号</td><td class="td-identifier">sort_number</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---作业开始时间</td><td class="td-identifier">work_start_time</td><td class="td-type">string</td><td class="td-remark">@mock=19:19</td></tr><tr class="tr-level-2"><td class="td-name">---排队号</td><td class="td-identifier">queue_number</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---计划预计开始时间</td><td class="td-identifier">plan_starttime</td><td class="td-type">string</td><td class="td-remark">@mock=18:27</td></tr><tr class="tr-level-2"><td class="td-name">---计划结束时间</td><td class="td-identifier">plan_endtime</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=11#</td></tr><tr class="tr-level-2"><td class="td-name">---计划主键id</td><td class="td-identifier">plan_id</td><td class="td-type">number</td><td class="td-remark">@mock=286</td></tr><tr class="tr-level-2"><td class="td-name">---是否确认驶入 1 是 0 否</td><td class="td-identifier">has_verify_to_berth</td><td class="td-type">number</td><td class="td-remark">@mock=0</td></tr><tr class="tr-level-2"><td class="td-name">---计划日期</td><td class="td-identifier">plan_date</td><td class="td-type">string</td><td class="td-remark">@mock=8月2日</td></tr><tr class="tr-level-2"><td class="td-name">---车牌号</td><td class="td-identifier">plate_number</td><td class="td-type">string</td><td class="td-remark">@mock=DF34421</td></tr><tr class="tr-level-2"><td class="td-name">---等候泊位号</td><td class="td-identifier">waiting_berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=W01#</td></tr><tr class="tr-level-2"><td class="td-name">---计划类型 1 追加 2 预定</td><td class="td-identifier">plan_type</td><td class="td-type">number</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-2"><td class="td-name">---供应商名称</td><td class="td-identifier">supplier_name</td><td class="td-type">string</td><td class="td-remark">@mock=五菱工业</td></tr></table>
+                        </div>
+                                    </div>
+                            <div class="page">
+                    <h2>1.7&nbsp;设备管理</h2>
+                                            <div class="action">
+                            <h3>1.7.1&nbsp;添加设备-获取未绑定设备的泊位号列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/getUnboundBerthInfoList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|18</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=$order(8,12,13,14,57,67,69,71,72,73,74,75,77,78,79,82,84,85)</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2&#39;,&#39;3&#39;,&#39;4&#39;,&#39;5&#39;,&#39;sdsd&#39;,&#39;dfdf&#39;,&#39;test&#39;,&#39;sdsdsd&#39;,&#39;sdsd11&#39;,&#39;aaaaaa&#39;,&#39;12323&#39;,&#39;edf&#39;,&#39;23fdedf&#39;,&#39;45555&#39;,&#39;ssdv4&#39;,&#39;88888&#39;,&#39;eeera&#39;,&#39;dfdfj&#39;)</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.2&nbsp;添加设备</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/addDevice.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>入参格式 Content Type：json</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">设备的IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">泊位主键id，也是设备的主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=设备绑定泊位成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.3&nbsp;查询设备信息列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/selectDeviceList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">可选</td></tr><tr class="tr-level-1"><td class="td-name">泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---设备主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-07-01 17:53:09.0</td></tr><tr class="tr-level-2"><td class="td-name">---华为IOT设备device_id</td><td class="td-identifier">device_id</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---硬件厂商设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-2"><td class="td-name">---修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-07-01 17:53:09.0</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.4&nbsp;修改设备信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/updateDevice.do</div>
+
+                            <h3>Method</h3>
+                            <div>POST</div>
+
+                            <h3>Description</h3>
+                            <div>入参格式 Content Type：json</div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">设备表主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr><tr class="tr-level-1"><td class="td-name">设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=设备IMEI号修改成功，请重新注册该设备到华为IOT</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.5&nbsp;设备注册</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/registerDevice.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">设备主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=注册设备成功</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.6&nbsp;修改设备信息-获取要修改的设备信息</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/getUpdateDeviceInfo.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">必须，int类型</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data</td><td class="td-type">object</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---泊位主键id</td><td class="td-identifier">berth_id</td><td class="td-type">number</td><td class="td-remark">@mock=8</td></tr><tr class="tr-level-2"><td class="td-name">---最后修改人</td><td class="td-identifier">last_updater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---创建时间</td><td class="td-identifier">create_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-07-01 17:53:09.0</td></tr><tr class="tr-level-2"><td class="td-name">---创建人</td><td class="td-identifier">creater</td><td class="td-type">string</td><td class="td-remark">@mock=wq</td></tr><tr class="tr-level-2"><td class="td-name">---设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">@mock=TEST$_863703030131812</td></tr><tr class="tr-level-2"><td class="td-name">---修改时间</td><td class="td-identifier">update_time</td><td class="td-type">string</td><td class="td-remark">@mock=2017-07-01 19:21:35.0</td></tr><tr class="tr-level-2"><td class="td-name">---设备id</td><td class="td-identifier">device_id</td><td class="td-type">string</td><td class="td-remark">@mock=81082495-e2f1-4d61-8b01-02fbf67ec3ee</td></tr><tr class="tr-level-2"><td class="td-name">---泊位号</td><td class="td-identifier">berth_number</td><td class="td-type">string</td><td class="td-remark">@mock=2</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.7&nbsp;（接口）查询设备上报的数据</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/getDeviceDataListFromHuaWeiIOT.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">查询起始时间</td><td class="td-identifier">query_start_time</td><td class="td-type">string</td><td class="td-remark">可选 时间格式：yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">查询结束时间</td><td class="td-identifier">query_end_time</td><td class="td-type">string</td><td class="td-remark">可选  时间格式：yyyy-MM-dd HH:mm:ss</td></tr><tr class="tr-level-1"><td class="td-name">设备IMEI号</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">可选</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|3</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">bytes</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;CwE4NjM3MDMwMzAxMzE4MTIwNTIxMDgAAABPLQAACRkAAAAE//4AAgADAAAABgADAAH//SAiACoIRgj7CgAGAADuAQMCBA8DDB4yAACABhEGHRITBjQ2MDAxMDgwNDcxMTU0NREGHRITBgARBh0SES8BEQYdECoQABEGHRANKwERBh0QAywAEQYdEAI2AREGHQ87MwARBh0POygBEQYdDzscAAopgXNuYmlvdAAAAAAAAAAAAAAIQjY1NlNQMgDA&#39;,&#39;CwE4NjM3MDMwMzAxMzE4MTIwNTIxMDgAAABPLQAACRkAAAAE//4AAgADAAAABgADAAH//SAiACoIRgj7CgAGAADuAQMCBA8DDB4yAACABhEGHRITBjQ2MDAxMDgwNDcxMTU0NREGHRITBgARBh0SES8BEQYdECoQABEGHRANKwERBh0QAywAEQYdEAI2AREGHQ87MwARBh0POygBEQYdDzscAAopgXNuYmlvdAAAAAAAAAAAAAAIQjY1NlNQMgDA&#39;,&#39;CwE4NjM3MDMwMzAxMzE4MTIwNTIxMDgAAABPLQAACRkAAAAE//4AAgADAAAABgADAAH//SAiACoIRgj7CgAGAADuAQMCBA8DDB4yAACABhEGHRITBjQ2MDAxMDgwNDcxMTU0NREGHRITBgARBh0SES8BEQYdECoQABEGHRANKwERBh0QAywAEQYdEAI2AREGHQ87MwARBh0POygBEQYdDzscAAopgXNuYmlvdAAAAAAAAAAAAAAIQjY1NlNQMgDA&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">cmd</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;11&#39;,&#39;11&#39;,&#39;11&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">deviceId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;,&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;,&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">eventTime</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;20170630T090903Z&#39;,&#39;20170630T090903Z&#39;,&#39;20170630T090903Z&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">signal</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;25&#39;,&#39;25&#39;,&#39;25&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">serviceType</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;IsParked&#39;,&#39;IsParked&#39;,&#39;IsParked&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">serviceId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;IsParked&#39;,&#39;IsParked&#39;,&#39;IsParked&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">notifyType</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;deviceDataChanged&#39;,&#39;deviceDataChanged&#39;,&#39;deviceDataChanged&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">parked</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;0&#39;,&#39;0&#39;,&#39;0&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">imei_no</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;863703030131812&#39;,&#39;863703030131812&#39;,&#39;863703030131812&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">battery</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;9&#39;,&#39;9&#39;,&#39;9&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">event_time</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;2017-06-30 09:09:03&#39;,&#39;2017-06-30 09:09:03&#39;,&#39;2017-06-30 09:09:03&#39;)</td></tr><tr class="tr-level-2"><td class="td-name">---</td><td class="td-identifier">gatewayId</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;,&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;,&#39;a556e39f-429a-4d81-95c8-f1911a049fe2&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.8&nbsp;设备指令下发</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/createAsynCommandV4.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">指令值</td><td class="td-identifier">value</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">指令方法</td><td class="td-identifier">method</td><td class="td-type">string</td><td class="td-remark">可选，默认为&quot;SET_PARK_SENSOR_STRING&quot;</td></tr><tr class="tr-level-1"><td class="td-name">华为IOT注册IMEI得到的deviceId</td><td class="td-identifier">device_id</td><td class="td-type">string</td><td class="td-remark">必须</td></tr><tr class="tr-level-1"><td class="td-name">指令</td><td class="td-identifier">cmd</td><td class="td-type">string</td><td class="td-remark">必须</td></tr></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark"></td></tr><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark"></td></tr></table>
+                        </div>
+                                            <div class="action">
+                            <h3>1.7.9&nbsp;设备指令下发-获取指令下拉列表</h3>
+
+                            <h3>URL</h3>
+                            <div>https://localhost:8080/yard/device/getCommandSelectList.do</div>
+
+                            <h3>Method</h3>
+                            <div>GET</div>
+
+                            <h3>Description</h3>
+                            <div></div>
+
+                            <h3>Request Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead></table>
+
+                            <h3>Response Param List</h3>
+                            <table class="param-table"><thead><th class="th-name">Name</th><th class="th-identifier">Identifier</th><th class="th-type">Type</th><th class="th-remark">Remark</th></thead><tr class="tr-level-1"><td class="td-name">result不为1时返回错误消息</td><td class="td-identifier">msg</td><td class="td-type">string</td><td class="td-remark">@mock=</td></tr><tr class="tr-level-1"><td class="td-name"></td><td class="td-identifier">data|12</td><td class="td-type">array&lt;object&gt;</td><td class="td-remark"></td></tr><tr class="tr-level-2"><td class="td-name">---指令</td><td class="td-identifier">cmd</td><td class="td-type">number</td><td class="td-remark">@mock=$order(104,112,113,115,116,117,118,119,120,123,124,199)</td></tr><tr class="tr-level-2"><td class="td-name">---指令名称</td><td class="td-identifier">cmd_name</td><td class="td-type">string</td><td class="td-remark">@mock=$order(&#39;测量阀值&#39;,&#39;数据使用&#39;,&#39;查询分类&#39;,&#39;检测周期&#39;,&#39;连续次数&#39;,&#39;接收次数&#39;,&#39;补发次数&#39;,&#39;心跳周期&#39;,&#39;射频心跳&#39;,&#39;学习环境&#39;,&#39;联网次数&#39;,&#39;复位设备&#39;)</td></tr><tr class="tr-level-1"><td class="td-name">-1 未登录 1 成功 0 失败</td><td class="td-identifier">result</td><td class="td-type">number</td><td class="td-remark">@mock=1</td></tr></table>
+                        </div>
+                                    </div>
+                    </div>
+    </div>
+</body>
+</html>
