@@ -7,7 +7,7 @@ http://www.chinabgao.com/report/print1934507.html
 
 北京华路时代信息技术股份有限公司
 
-开发环境：JDK8 + Eclipse + Tomcat8.0 + Sql Server 2008 + Spring MVC + Spring + MyBatis + HTML5 + AngularJS
+开发环境：JDK8 + Eclipse + Tomcat8.0 + Sql Server 2008 + Spring MVC + Spring + MyBatis + HTML5 + AngularJS + SVN
 
 项目简介：
 此项目为DHL物流的泊位管理系统，使用华为的智慧园区解决方案，通过华为的NB-IOT平台，将车感器硬件设备同web应用关联，使用BI工具动态展示泊位使用效率等
