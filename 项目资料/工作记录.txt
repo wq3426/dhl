@@ -82,8 +82,6 @@ order by plan_starttime
 
  【文档完善】
 
-  - 生产数据库访问权限开通
-
   - IOT对接流程整理
 
  【系统功能优化】
